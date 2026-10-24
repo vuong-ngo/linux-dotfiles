@@ -6,31 +6,31 @@
 // ================================================
 
 // =====================================
-// Layout
+// OVERVIEW SETTINGS
 // =====================================
-// https://github.com/niri-wm/niri/wiki/Overview
+// https://niri-wm.github.io/niri/Configuration%3A-Overview.html
 
 overview {
-    zoom 0.5
-    backdrop-color "rgba(24, 24, 27, 0.85)"
+    zoom 0.6
+    backdrop-color "rgba(18, 18, 20, 0.90)"
     workspace-shadow { off; }
 }
 
 // =====================================
-// Layout
+// LAYOUT SETTINGS GLOBAL
 // =====================================
 // https://niri-wm.github.io/niri/Configuration%3A-Layout.html
 
 layout {
-    gaps 5
+    gaps 10
     center-focused-column "never"
     empty-workspace-above-first
     background-color "transparent"
 
-    // default windows
+    // Default column and window proportions
     preset-column-widths {
         proportion 0.5
-        proportion 1.0 // Monitor configuration.
+        proportion 1.0
     }
     preset-window-heights {
         proportion 0.5
@@ -40,14 +40,14 @@ layout {
         proportion 1.0;
     }
 
-    // off all effects
-    focus-ring { off; }
+    // Shader
     shadow { off; }
+    focus-ring { off; }
     border { off; }
 
     insert-hint {
         on
-        color "#ffffff66"
+        color "rgba(255, 255, 255, 0.35)"
     }
 
     struts {
@@ -59,11 +59,12 @@ layout {
 }
 
 // =====================================
-// WINDOW TAB STYLE
+// WINDOW TAB & RECENT WINDOWS STYLE
 // =====================================
 // https://niri-wm.github.io/niri/Configuration%3A-Recent-Windows.html
+
 recent-windows {
-    on
+    off
     debounce-ms 200
     open-delay-ms 150
 
@@ -71,17 +72,12 @@ recent-windows {
         active-color "#ffffffaa"
         urgent-color "#ffffffff"
         padding 10
-        corner-radius 0
+        corner-radius 12
     }
 
     previews {
         max-height 400
         max-scale 0.5
-    }
-
-    binds {
-        Alt+Tab { next-window; }
-        Alt+Shift+Tab { previous-window; }
     }
 }
 
@@ -90,23 +86,25 @@ recent-windows {
 // =====================================
 // https://niri-wm.github.io/niri/Configuration%3A-Window-Rules.html
 
+// Global window geometry & styling (14px rounded corners, crisp and lightweight)
 window-rule {
-    geometry-corner-radius 0
+    geometry-corner-radius 14
     clip-to-geometry true
-    draw-border-with-background false
+    draw-border-with-background true
     tiled-state true
     scroll-factor 0.75
-    shadow { off; }
 }
 
-// Make rofi FLOAT and animate cleanly.
+// Picture-in-Picture
 window-rule {
-    match app-id="rofi"
-    match app-id="Rofi"
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
+    match app-id=r#"app.zen_browser.zen$"# title="^Picture-in-Picture$"
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
 
     open-floating true
 }
 
+// Small utilities & dialogs
 window-rule {
     match app-id="pop-id"
     match app-id="bubble"
@@ -136,7 +134,7 @@ window-rule {
     match app-id="org.gnome.Calculator"
 
     open-floating true
-    default-column-width { proportion 0.2; }
+    default-column-width { proportion 0.25; }
     default-window-height { proportion 0.5; }
 }
 
@@ -152,7 +150,6 @@ window-rule {
     match app-id="wdisplays"
     match app-id="nwg-look"
     match app-id=r#"org\.gtk\.FileChooserDialog"#
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
 
     open-floating true
     default-column-width { proportion 0.6; }
@@ -171,15 +168,14 @@ window-rule {
     match app-id="^steam_app_"
     match title=".exe$"
 
-    // Niri's equivalent to Hyprland's 'immediate'
     variable-refresh-rate true
 }
 
-// Indicate screencasted windows with red colors.
+// Indicate screencasted windows with subtle highlight
 window-rule {
     match is-window-cast-target=true
 
-    focus-ring { off;}
+    focus-ring { off; }
     border { off; }
     shadow { off; }
 
@@ -193,11 +189,11 @@ window-rule {
 // LAYER RULES
 // =====================================
 // https://niri-wm.github.io/niri/Configuration%3A-Layer-Rules.html
+
 layer-rule {
-    geometry-corner-radius 0
+    geometry-corner-radius 14
     popups {
-        // Match the default GTK 3 popup corner radius.
-        geometry-corner-radius 0
+        geometry-corner-radius 10
     }
 }
 
@@ -210,7 +206,6 @@ layer-rule {
     match namespace="waybar"
     match namespace="^swaync-control-center$"
 
-    shadow { off; }
     match at-startup=true
     place-within-backdrop true
 }
@@ -220,7 +215,7 @@ layer-rule {
     shadow { off; }
 }
 
-// Put swaybg inside the overview backdrop.
+// Put swaybg inside the overview backdrop
 layer-rule {
     match namespace="^wallpaper$"
     place-within-backdrop true
