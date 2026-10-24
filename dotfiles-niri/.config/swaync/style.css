@@ -1,38 +1,50 @@
 /* ==========================================================================
-   SWAYNC - PURE BLACK & WHITE MONOCHROME THEME
+   SWAYNC - UNIVERSAL OBSIDIAN FROSTED GLASS (SOFT & GENTLE THEME)
+   Comfortable on the Eyes, Soft Pearl Typography & Harmonious Translucency
    ========================================================================== */
 
-@define-color base            #18181b;
-@define-color mantle          #27272a;
-@define-color surface0        #3f3f46;
-@define-color surface1        #52525b;
-@define-color text            #f4f4f5;
-@define-color subtext         #a1a1aa;
-@define-color subtext-dim     #71717a;
-@define-color accent          #f4f4f5; /* Pure White Accent */
-@define-color danger          #ffffff; /* White Danger */
+@define-color glass-base          rgba(16, 16, 20, 0.82);
+@define-color glass-card          rgba(255, 255, 255, 0.04);
+@define-color glass-card-hover    rgba(255, 255, 255, 0.08);
+@define-color glass-card-active   rgba(255, 255, 255, 0.16);
 
-/* Reset & Global Font Defaults */
+/* Gentle, soothing typography (Non-glaring, relaxing contrast) */
+@define-color text-primary        #CBCDD6;
+@define-color text-secondary      #888A96;
+@define-color text-dim            #60626E;
+@define-color text-highlight      #EAEAEF;
+
+@define-color border-glass        rgba(255, 255, 255, 0.11);
+@define-color border-subtle       rgba(255, 255, 255, 0.05);
+@define-color border-highlight    rgba(255, 255, 255, 0.22);
+
+@define-color danger              #fb7185;
+
+/* Reset & Global Typography (Regular weight, clean & soothing) */
 * {
-  font-family: 'JetBrainsMono Nerd Font', 'JetBrainsMono NF', 'JetBrains Mono', monospace;
+  font-family:
+    "JetBrainsMono Nerd Font", "JetBrainsMono NF", "JetBrains Mono", monospace;
   font-size: 13px;
-  font-weight: 500;
-  color: @text;
-  box-shadow: none !important;
-  text-shadow: none !important;
+  font-weight: 400;
+  color: @text-primary;
+  box-shadow: none;
+  text-shadow: none;
   border: none;
   outline: none;
   transition: all 0.15s ease-in-out;
 }
 
-/* Base Control Center Glass Layout */
+/* ==========================================================================
+   Control Center Main Window
+   ========================================================================== */
 .control-center {
-  background: rgba(24, 24, 27, 0.92);
-  border: 1.5px solid rgba(82, 82, 91, 0.4);
-  border-radius: 16px;
-  padding: 16px;
+  background: @glass-base;
+  border: 1.5px solid @border-glass;
+  border-radius: 20px;
+  padding: 14px;
   margin: 10px;
-  min-height: 660px;
+  min-height: 680px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.40);
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -44,21 +56,25 @@
   background: transparent;
 }
 
-/* Card Containers */
-.widget-title, 
-.widget-dnd, 
+/* ==========================================================================
+   Inner Widget Containers (Frosted Cards)
+   ========================================================================== */
+.widget-title,
+.widget-dnd,
 .widget-volume,
-.widget-backlight, 
+.widget-backlight,
 .widget-buttons-grid,
 .widget-mpris {
-  background: rgba(39, 39, 42, 0.8);
-  border: 1px solid rgba(82, 82, 91, 0.3);
-  border-radius: 12px;
+  background: @glass-card;
+  border: 1px solid @border-subtle;
+  border-radius: 14px;
   margin-bottom: 10px;
-  padding: 12px;
+  padding: 12px 14px;
 }
 
-/* Title Header */
+/* ==========================================================================
+   Widget: Header / Title
+   ========================================================================== */
 .widget-title {
   background: transparent;
   border: none;
@@ -67,65 +83,86 @@
 }
 
 .widget-title > label {
-  font-size: 14px;
-  font-weight: 700;
-  color: @text;
+  font-size: 12px;
+  font-weight: 550;
+  letter-spacing: 0.5px;
+  color: #A8AAB6;
 }
 
 .widget-title > button {
-  background: rgba(244, 244, 245, 0.15);
-  border: 1px solid rgba(244, 244, 245, 0.3);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid @border-subtle;
+  border-radius: 10px;
   padding: 4px 12px;
-  font-size: 12px;
-  font-weight: 600;
-  color: @text;
+  font-size: 11.5px;
+  font-weight: 450;
+  color: @text-secondary;
 }
 
 .widget-title > button:hover {
-  background: @text;
-  color: @base;
+  background: rgba(255, 255, 255, 0.14);
+  color: @text-highlight;
+  border-color: @border-highlight;
 }
 
-/* Media Player */
+/* ==========================================================================
+   Widget: MPRIS Media Player
+   ========================================================================== */
+.widget-mpris {
+  padding: 12px;
+}
+
+.widget-mpris-album-art {
+  border-radius: 10px;
+  margin-right: 12px;
+}
+
 .widget-mpris-title {
-  font-size: 13.5px;
-  font-weight: 700;
-  color: @text;
+  font-size: 12.5px;
+  font-weight: 550;
+  color: @text-highlight;
 }
 
 .widget-mpris-subtitle {
-  font-size: 12px;
-  color: @subtext;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: @text-secondary;
+  margin-top: 2px;
 }
 
 .widget-mpris button {
-  background: rgba(82, 82, 91, 0.3);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid @border-subtle;
+  border-radius: 10px;
   padding: 6px 12px;
-  margin: 0 2px;
+  margin: 0 3px;
+  color: @text-primary;
 }
 
 .widget-mpris button:hover {
-  background: @text;
-  color: @base;
+  background: rgba(255, 255, 255, 0.14);
+  color: @text-highlight;
+  border-color: @border-highlight;
 }
 
-/* Sliders (Pure White Highlight) */
-.widget-volume label, .widget-backlight label {
-  font-size: 15px;
-  color: @text;
-  margin-right: 8px;
+/* ==========================================================================
+   Widget: Sliders (Volume & Brightness)
+   ========================================================================== */
+.widget-volume label,
+.widget-backlight label {
+  font-size: 13.5px;
+  color: @text-primary;
+  margin-right: 10px;
 }
 
 scale trough {
-  background: rgba(63, 63, 70, 0.7);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 8px;
-  min-height: 10px;
+  min-height: 8px;
 }
 
 scale highlight {
-  background: @text;
+  background: rgba(255, 255, 255, 0.65);
   border-radius: 8px;
 }
 
@@ -135,113 +172,132 @@ scale slider {
   min-height: 0px;
 }
 
-/* DND Switch (Pure White Switch) */
+/* ==========================================================================
+   Widget: DND (Do Not Disturb Switch)
+   ========================================================================== */
+.widget-dnd {
+  padding: 10px 14px;
+}
+
 .widget-dnd > label {
-  font-size: 13px;
-  font-weight: 600;
-  color: @text;
+  font-size: 12px;
+  font-weight: 450;
+  color: @text-primary;
 }
 
 .widget-dnd > switch {
-  background: rgba(63, 63, 70, 0.8);
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid @border-glass;
   border-radius: 14px;
   min-height: 22px;
-  min-width: 40px;
-  border: 1px solid rgba(82, 82, 91, 0.4);
+  min-width: 42px;
 }
 
 .widget-dnd > switch slider {
-  background: @subtext;
+  background: @text-secondary;
   border-radius: 50%;
+  min-width: 18px;
+  min-height: 18px;
   margin: 2px;
 }
 
 .widget-dnd > switch:checked {
-  background: @text;
-  border-color: @text;
+  background: rgba(255, 255, 255, 0.20);
+  border-color: @border-highlight;
 }
 
 .widget-dnd > switch:checked slider {
-  background: @base;
+  background: @text-highlight;
   margin-left: 20px;
 }
 
-/* Quick Toggle Buttons */
-.widget-buttons-grid flowboxchild button {
-  background: rgba(63, 63, 70, 0.6);
-  border: 1px solid rgba(82, 82, 91, 0.3);
-  border-radius: 10px;
+/* ==========================================================================
+   Widget: Quick Toggle Buttons Grid
+   ========================================================================== */
+.widget-buttons-grid {
   padding: 8px;
+}
+
+.widget-buttons-grid flowboxchild button {
+  background: @glass-card;
+  border: 1px solid @border-subtle;
+  border-radius: 12px;
+  padding: 10px 8px;
   margin: 3px;
-  color: @text;
-  font-weight: 600;
-  font-size: 13px;
+  color: #A8AAB6;
+  font-weight: 450;
+  font-size: 12px;
 }
 
 .widget-buttons-grid flowboxchild button:hover {
-  background: rgba(244, 244, 245, 0.2);
-  border-color: @text;
-  color: @text;
+  background: @glass-card-hover;
+  border-color: @border-glass;
+  color: @text-highlight;
 }
 
 .widget-buttons-grid flowboxchild button:checked {
-  background: @text;
-  color: @base;
-  border-color: transparent;
+  background: @glass-card-active;
+  color: @text-highlight;
+  border-color: @border-highlight;
+  font-weight: 550;
 }
 
-/* Notification Popup Cards */
+/* ==========================================================================
+   Notification Popup Cards (Soothing Glassmorphism)
+   ========================================================================== */
 .notification-row {
   background: transparent;
 }
 
 .notification {
-  background: rgba(39, 39, 42, 0.95);
-  border: 1px solid rgba(82, 82, 91, 0.35);
-  border-left: 4px solid @text;
-  border-radius: 12px;
-  margin-top: 6px;
+  background: rgba(16, 16, 20, 0.88);
+  border: 1.5px solid @border-glass;
+  border-left: 3px solid rgba(255, 255, 255, 0.45);
+  border-radius: 16px;
+  margin-top: 8px;
   padding: 4px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .notification-critical {
-  border-left-color: #ffffff;
-  background: rgba(50, 50, 55, 0.95);
+  border-left-color: @danger;
+  background: rgba(26, 18, 22, 0.92);
 }
 
 .notification-content {
-  padding: 10px;
+  padding: 10px 12px;
 }
 
 .notification-content .summary {
-  font-size: 13.5px;
-  font-weight: 700;
-  color: @text;
+  font-size: 13px;
+  font-weight: 550;
+  color: @text-highlight;
 }
 
 .notification-content .body {
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 400;
-  color: @subtext;
-  margin-top: 2px;
+  color: @text-secondary;
+  margin-top: 3px;
+  line-height: 1.35;
 }
 
 .notification-content .time {
-  font-size: 11px;
-  color: @subtext-dim;
+  font-size: 10.5px;
+  color: @text-dim;
 }
 
 .close-button {
-  background: rgba(82, 82, 91, 0.3);
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 50%;
-  color: @subtext;
-  margin: 4px;
+  color: @text-secondary;
+  margin: 6px;
   padding: 2px;
-  min-width: 18px;
-  min-height: 18px;
+  min-width: 20px;
+  min-height: 20px;
 }
 
 .close-button:hover {
-  background: @text;
-  color: @base;
+  background: rgba(255, 255, 255, 0.18);
+  color: @text-highlight;
 }

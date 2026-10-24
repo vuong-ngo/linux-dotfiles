@@ -9,17 +9,16 @@
   "control-center-margin-top": 0,
   "control-center-margin-right": 15,
   "control-center-margin-bottom": 15,
-  "notification-window-width": 320,
-  "notification-icon-size": 30,
+  "notification-window-width": 340,
+  "notification-icon-size": 32,
   "transition-length": 250,
   "timeout": 3,
   "timeout-low": 2,
-  "timeout-critical": 0,
+  "timeout-critical": 5,
   "fit-to-screen": false,
   "keyboard-shortcuts": true,
   "image-visibility": "when-available",
-  "script-fail-notify": true,
-
+  "script-fail-notify": false,
   "widgets": [
     "title",
     "mpris",
@@ -76,6 +75,12 @@
           "interval": 10
         }
       ]
+    }
+  },
+  "scripts": {
+    "notification-sound": {
+      "exec": "bash ~/.config/swaync/scripts/notification_sound.sh",
+      "run-on": "receive"
     }
   }
 }
