@@ -19,3 +19,6 @@ alias script-pin="bash ~/.config/niri/scripts/show_pin.sh"
 alias script-wall="bash ~/.config/rofi/scripts/wallpaper-picker/wallpaper-picker.sh"
 alias script-powermenu="bash ~/.config/rofi/scripts/power-menu/power-menu.sh"
 alias script-clip="bash ~/.config/rofi/scripts/clipboard-manager/clipboard-manager.sh"
+
+# Terminal Utilities
+alias ssh="TERM=xterm-256color ssh"
