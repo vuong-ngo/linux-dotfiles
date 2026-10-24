@@ -6,7 +6,7 @@
 # ============================================================
 
 show_help() {
-    cat << EOF
+  cat <<EOF
 Usage: $(basename "$0") [OPTION]
 
 Description:
@@ -22,21 +22,25 @@ EOF
 }
 
 if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
-    show_help
-    exit 0
+  show_help
+  exit 0
 fi
 
 WIFI_STATE=$(nmcli radio wifi 2>/dev/null || echo "disabled")
 
 if [ "$WIFI_STATE" = "enabled" ]; then
-    nmcli radio all off
-    pkexec rfkill block all &
-    notify-send -u critical -i airplane-mode-symbolic \
-        "Airplane Mode" "[OFFLINE] Radios Disabled"
+  nmcli radio all off
+  pkexec rfkill block all &
+  notify-send -a "Network" -u normal -t 2000 \
+    -h string:x-canonical-private-synchronous:airplane-mode \
+    -i airplane-mode-symbolic \
+    "Airplane Mode" "Enabled (All radios off)"
 else
-    pkexec rfkill unblock all &
-    nmcli radio all on
-    sleep 1
-    notify-send -u normal -i network-wireless-signal-excellent-symbolic \
-        "Airplane Mode" "[ONLINE] Radios Enabled"
+  pkexec rfkill unblock all &
+  nmcli radio all on
+  sleep 1
+  notify-send -a "Network" -u normal -t 2000 \
+    -h string:x-canonical-private-synchronous:airplane-mode \
+    -i network-wireless-signal-excellent-symbolic \
+    "Airplane Mode" "Disabled (All radios on)"
 fi

@@ -6,7 +6,7 @@
 # ============================================================
 
 show_help() {
-    cat << EOF
+  cat <<EOF
 Usage: $(basename "$0") [OPTION]
 
 Description:
@@ -22,8 +22,8 @@ EOF
 }
 
 if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
-    show_help
-    exit 0
+  show_help
+  exit 0
 fi
 
 DIR="$HOME/.config/niri/config.d"
@@ -32,9 +32,15 @@ OFF="$DIR/keybinds-off.kdl"
 ACTIVE="$DIR/keybinds.kdl"
 
 if [ "$(readlink "$ACTIVE")" = "$OFF" ]; then
-    ln -sf "$ON" "$ACTIVE"
-    notify-send -t 800 "Niri" "[OPEN] Keybinds Enabled (Normal)"
+  ln -sf "$ON" "$ACTIVE"
+  notify-send -a "Niri" -u normal -t 1500 \
+    -h string:x-canonical-private-synchronous:niri-keybinds \
+    -i input-keyboard-symbolic \
+    "Keybindings" "Normal Mode (Enabled)"
 else
-    ln -sf "$OFF" "$ACTIVE"
-    notify-send -t 800 "Niri" "[LOCK] Keybinds Disabled (Passthrough)"
+  ln -sf "$OFF" "$ACTIVE"
+  notify-send -a "Niri" -u normal -t 1500 \
+    -h string:x-canonical-private-synchronous:niri-keybinds \
+    -i input-keyboard-symbolic \
+    "Keybindings" "Passthrough Mode (Disabled)"
 fi

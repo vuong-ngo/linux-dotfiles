@@ -6,7 +6,7 @@
 # ============================================================
 
 show_help() {
-    cat << EOF
+  cat <<EOF
 Usage: $(basename "$0") <performance|balanced|power-saver> [OPTION]
 
 Description:
@@ -28,23 +28,21 @@ EOF
 }
 
 if [[ "${1:-}" == "-h" || "${1:-}" == "--help" || -z "${1:-}" ]]; then
-    show_help
-    exit 0
+  show_help
+  exit 0
 fi
 
 TARGET_MODE="$1"
 
 if [[ "$TARGET_MODE" != "performance" && "$TARGET_MODE" != "balanced" && "$TARGET_MODE" != "power-saver" ]]; then
-    echo "Error: Invalid mode '$TARGET_MODE'"
-    show_help
-    exit 1
+  echo "Error: Invalid mode '$TARGET_MODE'"
+  show_help
+  exit 1
 fi
 
 powerprofilesctl set "$TARGET_MODE" 2>/dev/null || true
 
-notify-send -h string:x-dunst-stack-tag:power_profile \
-            -u normal \
-            -i speedometer-symbolic \
-            "Power Strategy" "[PWR] Active Profile: ${TARGET_MODE^^}"
-
-swaync-client -rs > /dev/null 2>&1 || true
+notify-send -a "Power" -u normal -t 2000 \
+  -h string:x-canonical-private-synchronous:power-profile \
+  -i speedometer-symbolic \
+  "Power Profile" "Switched to ${TARGET_MODE^}"
