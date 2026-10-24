@@ -35,5 +35,5 @@ hotkey-overlay { skip-at-startup; }
 gestures { hot-corners { off; }; }
 
 binds {
-    Mod+Ctrl+Alt+K { spawn "~/.config/niri/scripts/toggle_keybinds.sh"; }
+    Mod+Ctrl+Alt+K hotkey-overlay-title="Toggle Keybindings (Normal / Passthrough)" { spawn-sh "~/.config/niri/scripts/toggle_keybinds.sh"; }
 }
