@@ -22,9 +22,11 @@ This directory contains the desktop environment configurations for the **Niri Wa
 - `airplane_mode.sh`: Toggles Wi-Fi and Bluetooth radio interfaces via `nmcli` & `rfkill`.
 - `night_light.sh`: Toggles blue light filter / color temperature via `wlsunset` or `gammastep`.
 - `power_mode.sh`: Toggles CPU power profiles (`performance`, `balanced`, `power-saver`).
+- `power_saved.sh`: Extreme power saver mode (20% brightness + CPU throttle).
 - `keep_awake.sh`: Inhibits system idle / sleep during long tasks.
-- `rofi_nvidia.sh`: Displays GPU statistics in Rofi.
-- `toggle_keybinds.sh`: Toggles Niri keybindings overlay.
+- `show_pin.sh`: Battery percentage and power status inspector.
+- `rofi_nvidia.sh`: NVIDIA GPU Application Launcher with `prime-run` (`Mod + Shift + A`).
+- `toggle_keybinds.sh`: Toggles Niri keybindings between Normal and Passthrough modes.
 
 ---
 
