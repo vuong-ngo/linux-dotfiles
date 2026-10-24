@@ -1,0 +1,163 @@
+/*****----- App Launcher Dedicated Rofi Theme -----*****/
+configuration {
+    modi:                       "drun,run,window";
+    font:                       "JetBrainsMono Nerd Font Bold 11";
+    show-icons:                 true;
+    display-drun:               "󰀻 Apps";
+    display-run:                "󰆍 Run";
+    display-window:             "󰖯 Windows";
+    drun-display-format:        "{name}";
+    window-format:              "{w} · {c} · {t}";
+}
+
+/*****----- Imports -----*****/
+@import                         "~/.config/rofi/colors.rasi"
+@import                         "~/.config/rofi/keybinds.rasi"
+
+/*****----- Main Window -----*****/
+window {
+    transparency:               "real";
+    location:                   center;
+    anchor:                     center;
+    fullscreen:                 false;
+    width:                      750px;
+    x-offset:                   0px;
+    y-offset:                   0px;
+
+    enabled:                    true;
+    margin:                     0px;
+    padding:                    0px;
+    border:                     1.5px solid;
+    border-radius:              20px;
+    border-color:               @border-colour;
+    background-color:           @background;
+    cursor:                     "default";
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                    true;
+    spacing:                    15px;
+    margin:                     0px;
+    padding:                    24px;
+    background-color:           transparent;
+    children:                   [ "inputbar", "listview", "mode-switcher" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled:                    true;
+    spacing:                    12px;
+    margin:                     0px;
+    padding:                    12px 18px;
+    border:                     1px solid;
+    border-radius:              14px;
+    border-color:               rgba(255, 255, 255, 0.08);
+    background-color:           @background-alt;
+    text-color:                 @foreground;
+    children:                   [ "textbox-prompt-colon", "entry" ];
+}
+
+textbox-prompt-colon {
+    enabled:                    true;
+    expand:                     false;
+    str:                        " ";
+    background-color:           transparent;
+    text-color:                 @accent;
+    vertical-align:             0.5;
+    font:                       "JetBrainsMono Nerd Font Bold 13";
+}
+
+entry {
+    enabled:                    true;
+    background-color:           transparent;
+    text-color:                 inherit;
+    cursor:                     text;
+    placeholder:                " Search applications...";
+    placeholder-color:          @foreground-muted;
+    vertical-align:             0.5;
+    font:                       "JetBrainsMono Nerd Font 11";
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                    true;
+    columns:                    2;
+    lines:                      6;
+    cycle:                      true;
+    dynamic:                    true;
+    scrollbar:                  false;
+    layout:                     vertical;
+    reverse:                    false;
+    fixed-height:               true;
+    fixed-columns:              true;
+
+    spacing:                    8px;
+    margin:                     0px;
+    padding:                    8px 0px 0px 0px;
+    background-color:           transparent;
+    text-color:                 @foreground;
+    cursor:                     "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                    true;
+    spacing:                    12px;
+    margin:                     0px;
+    padding:                    10px 14px;
+    border-radius:              12px;
+    background-color:           transparent;
+    text-color:                 @foreground;
+    cursor:                     pointer;
+}
+
+element normal.normal, element alternate.normal {
+    background-color:           transparent;
+    text-color:                 @foreground;
+}
+
+element selected.normal {
+    background-color:           @selected;
+    text-color:                 @selected-text;
+}
+
+element-icon {
+    background-color:           transparent;
+    text-color:                 inherit;
+    size:                       28px;
+    cursor:                     inherit;
+}
+
+element-text {
+    background-color:           transparent;
+    text-color:                 inherit;
+    highlight:                  inherit;
+    cursor:                     inherit;
+    vertical-align:             0.5;
+    horizontal-align:           0.0;
+    font:                       "JetBrainsMono Nerd Font Bold 11";
+}
+
+/*****----- Mode Switcher -----*****/
+mode-switcher {
+    enabled:                    true;
+    spacing:                    12px;
+    margin:                     8px 0px 0px 0px;
+    padding:                    0px;
+    background-color:           transparent;
+}
+
+button {
+    padding:                    10px 16px;
+    border-radius:              12px;
+    background-color:           @background-alt;
+    text-color:                 @foreground-muted;
+    cursor:                     pointer;
+    font:                       "JetBrainsMono Nerd Font Bold 11";
+}
+
+button selected {
+    background-color:           @selected;
+    text-color:                 @selected-text;
+}

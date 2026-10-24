@@ -1,4 +1,4 @@
-/*****----- Configuration for Minimalist Icon-Only Top Power Menu -----*****/
+/*****----- Configuration for Minimalist Power Menu (Graphite Dark Glass) -----*****/
 configuration {
     show-icons:                 false;
 }
@@ -7,21 +7,21 @@ configuration {
 @import                          "~/.config/rofi/colors.rasi"
 @import                          "~/.config/rofi/keybinds.rasi"
 
-/*****----- Main Window (Compact Top Center Bar) -----*****/
+/*****----- Main Window (Floating Top Bar) -----*****/
 window {
     transparency:       "real";
     location:           north;
     anchor:             north;
     fullscreen:         false;
-    width:              600px;
+    width:              560px;
     x-offset:           0px;
-    y-offset:           20px;
+    y-offset:           24px;
 
     border:             1.5px solid;
     border-radius:      20px;
     border-color:       @border-colour;
     background-color:   @background;
-    padding:            14px;
+    padding:            12px;
     cursor:             "default";
 }
 
@@ -35,7 +35,7 @@ mainbox {
     children:           [ "listview" ];
 }
 
-/*****----- Listview (6 Icon Options) -----*****/
+/*****----- Listview (6 Centered Icons) -----*****/
 listview {
     enabled:            true;
     columns:            6;
@@ -51,13 +51,13 @@ listview {
     cursor:             "default";
 }
 
-/*****----- Elements (Icon Buttons) -----*****/
+/*****----- Elements (Icon Tiles) -----*****/
 element {
     enabled:            true;
-    padding:            18px 0px;
+    padding:            16px 0px;
     border-radius:      14px;
     border:             1px solid;
-    border-color:       rgba(255, 255, 255, 0.06);
+    border-color:       @border-subtle;
     background-color:   @background-alt;
     text-color:         @foreground;
     cursor:             pointer;
@@ -66,6 +66,7 @@ element {
 element normal.normal, element alternate.normal {
     background-color:   @background-alt;
     text-color:         @foreground;
+    border-color:       @border-subtle;
 }
 
 element selected.normal {
@@ -75,7 +76,7 @@ element selected.normal {
 }
 
 element-text {
-    font:               "JetBrainsMono Nerd Font Bold 22";
+    font:               "JetBrainsMono Nerd Font Bold 24";
     background-color:   transparent;
     text-color:         inherit;
     cursor:             inherit;

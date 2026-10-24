@@ -1,25 +1,31 @@
-/*****----- Colors - Exact Tmux Graphite Black Theme -----*****/
+/*****----- Colors - Universal Obsidian Frosted Glass (Soft & Gentle Palette) -----*****/
 * {
-    /* Exact Tmux Color Palette */
-    background:          #18181BE6; /* Deep Graphite Glass (#18181b) */
-    background-alt:      #27272AFF; /* Dark Steel Container (#27272a) */
-    background-card:     #3F3F46FF; /* Secondary Graphite Card (#3f3f46) */
+    /* Pure Neutral Frosted Glass (Zero hue bias, softly diffuses any wallpaper background) */
+    background:          rgba(16, 16, 20, 0.82); /* Frosted Obsidian Glass (82% opacity) */
+    background-alt:      rgba(255, 255, 255, 0.04); /* Soft translucent inner container */
+    background-card:     rgba(255, 255, 255, 0.06); /* Elevated frosted card */
+    background-hover:    rgba(255, 255, 255, 0.08); /* Gentle hover sheen */
 
-    foreground:          #F4F4F5FF; /* Platinum White Text (#f4f4f5) */
-    foreground-muted:    #A1A1AAFF; /* Silver Grey Muted Text (#a1a1aa) */
+    /* Typography - Soft, Soothing & Gentle (Non-glaring, relaxing on eyes) */
+    foreground:          #CBCDD6;                  /* Soft Warm Pearl (Gentle & Calm) */
+    foreground-muted:    #888A96;                  /* Soft Slate Gray */
+    foreground-dim:      #60626E;                  /* Subtle Dim Text */
 
-    /* Selection & Highlight (Matches Tmux Active Window Index) */
-    selected:            #F4F4F5FF; /* Platinum White Highlight */
-    selected-text:       #18181BFF; /* Dark Text (#18181b) on selection */
+    /* Gentle Frosted Selection Capsule (Whisper-soft highlight, no white flash) */
+    selected:            rgba(255, 255, 255, 0.12); /* Soft Luminous Frosted Highlight */
+    selected-text:       #EAEAEF;                  /* Pearl White Text on Selection */
+    selected-alt:        rgba(255, 255, 255, 0.07); /* Secondary Subtle Highlight */
 
-    /* Mode Accents (Matches Tmux Modes) */
-    accent:              #E4E4E7FF; /* Normal Mode Silver (#e4e4e7) */
-    accent-amber:        #F59E0BFF; /* Prefix Mode Amber (#f59e0b) */
-    accent-purple:       #C084FCFF; /* Visual Mode Purple (#c084fc) */
-    urgent:              #F43F5EFF; /* Warning Rose Red */
+    /* Accents (Gentle, elegant, neutral) */
+    accent:              #C4C6D0;                  /* Gentle Platinum Accent */
+    accent-cyan:         #38BDF8;                  /* Soft Sky Glow */
+    accent-amber:        #FBBF24;                  /* Warm Amber Warning */
+    urgent:              #FB7185;                  /* Soft Rose Alert */
 
-    /* Borders & Dividers (Matches Tmux #52525b) */
-    border-colour:       #52525B66; /* Subtle Glass Border */
-    border-highlight:    #F4F4F566; /* Silver Highlight Border */
+    /* Specular Hairline Glass Borders (Crisp definition over any wallpaper) */
+    border-colour:       rgba(255, 255, 255, 0.11); /* Delicate Glass Hairline */
+    border-subtle:       rgba(255, 255, 255, 0.05); /* Divider / Inner Border */
+    border-highlight:    rgba(255, 255, 255, 0.20); /* Active Element Border */
+
     background-color:    transparent;
 }

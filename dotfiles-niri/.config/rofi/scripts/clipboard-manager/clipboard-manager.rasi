@@ -1,4 +1,4 @@
-/*****----- Configuration for Clipboard Manager -----*****/
+/*****----- Configuration for Clipboard Manager (Graphite Dark Glass) -----*****/
 configuration {
     show-icons:                 false;
 }
@@ -7,20 +7,20 @@ configuration {
 @import                         "~/.config/rofi/colors.rasi"
 @import                         "~/.config/rofi/keybinds.rasi"
 
-/*****----- Main Window -----*****/
+/*****----- Main Window (Floating Bottom-Left) -----*****/
 window {
     transparency:                "real";
     location:                    south west;
     anchor:                      south west;
-    width:                       520px;
-    x-offset:                    20px;
-    y-offset:                    -20px;
+    width:                       540px;
+    x-offset:                    24px;
+    y-offset:                    -24px;
 
     enabled:                     true;
     margin:                      0px;
     padding:                     14px;
     border:                      1.5px solid;
-    border-radius:               16px;
+    border-radius:               18px;
     border-color:                @border-colour;
     background-color:            @background;
     cursor:                      "default";
@@ -29,7 +29,7 @@ window {
 /*****----- Main Box -----*****/
 mainbox {
     enabled:                     true;
-    spacing:                     8px;
+    spacing:                     10px;
     margin:                      0px;
     padding:                     0px;
     background-color:            transparent;
@@ -39,12 +39,12 @@ mainbox {
 /*****----- Inputbar -----*****/
 inputbar {
     enabled:                     true;
-    spacing:                     8px;
+    spacing:                     10px;
     margin:                      0px;
-    padding:                     8px 14px;
+    padding:                     10px 14px;
     border-radius:               12px;
     border:                      1px solid;
-    border-color:                rgba(255, 255, 255, 0.08);
+    border-color:                @border-subtle;
     background-color:            @background-alt;
     text-color:                  @foreground;
     children:                    [ "prompt", "entry" ];
@@ -54,7 +54,7 @@ prompt {
     enabled:                     true;
     background-color:            transparent;
     text-color:                  @accent;
-    font:                        "JetBrainsMono Nerd Font Bold 11";
+    font:                        "JetBrainsMono Nerd Font Bold 12";
     vertical-align:              0.5;
 }
 
@@ -63,7 +63,7 @@ entry {
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 " Search clipboard history...";
+    placeholder:                 "Search clipboard history...";
     placeholder-color:           @foreground-muted;
     vertical-align:              0.5;
     font:                        "JetBrainsMono Nerd Font 10.5";
@@ -76,7 +76,7 @@ message {
     padding:                     6px 10px;
     border-radius:               10px;
     border:                      1px solid;
-    border-color:                rgba(255, 255, 255, 0.06);
+    border-color:                @border-subtle;
     background-color:            @background-alt;
     text-color:                  @foreground-muted;
 }
@@ -84,7 +84,7 @@ message {
 textbox {
     font:                        "JetBrainsMono Nerd Font 9.5";
     background-color:            transparent;
-    text-color:                  @accent;
+    text-color:                  @foreground-muted;
     vertical-align:              0.5;
     horizontal-align:            0.5;
 }
@@ -118,7 +118,7 @@ element {
     padding:                     8px 12px;
     border-radius:               10px;
     border:                      1px solid;
-    border-color:                rgba(255, 255, 255, 0.04);
+    border-color:                transparent;
     background-color:            @background-alt;
     text-color:                  @foreground;
     cursor:                      pointer;
@@ -127,6 +127,7 @@ element {
 element normal.normal, element alternate.normal {
     background-color:            @background-alt;
     text-color:                  @foreground;
+    border-color:                transparent;
 }
 
 element selected.normal {
@@ -137,15 +138,15 @@ element selected.normal {
 
 /* Distinct Red Warning Style for Clear All Button */
 element normal.urgent, element alternate.urgent {
-    background-color:            rgba(244, 63, 94, 0.15);
-    text-color:                  #f43f5e;
-    border-color:                rgba(244, 63, 94, 0.35);
+    background-color:            rgba(251, 113, 133, 0.12);
+    text-color:                  @urgent;
+    border-color:                rgba(251, 113, 133, 0.25);
 }
 
 element selected.urgent {
-    background-color:            #f43f5e;
-    text-color:                  #18181b;
-    border-color:                #f43f5e;
+    background-color:            @urgent;
+    text-color:                  #121214;
+    border-color:                @urgent;
 }
 
 element-text {

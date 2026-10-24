@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ============================================================
-# Script: Rofi Power Menu (Icon-Only Minimalist)
+# Script: Rofi Power Menu (Graphite Glass & JetBrainsMono Icons)
 # Platform: Arch Linux x Niri (Wayland)
 # Tools: hyprlock / gtklock, swaync, systemctl
 # ============================================================
@@ -14,16 +14,17 @@ lock_screen() {
     fi
 }
 
-lock=""
-logout=""
+# JetBrainsMono Nerd Font v3 Icons
+lock="󰌾"
+logout="󰍃"
 sleep_opt="󰤄"
 hibernate="󰒲"
-reboot=""
-shutdown=""
+reboot="󰑓"
+shutdown="󰐥"
 
 options="$lock\n$logout\n$sleep_opt\n$hibernate\n$reboot\n$shutdown"
 
-chosen="$(echo -e "$options" | rofi -dmenu -i -p "Power" \
+chosen="$(echo -e "$options" | rofi -dmenu -i -p "󰐥 " \
     -theme ~/.config/rofi/scripts/power-menu/power-menu.rasi)"
 
 case "$chosen" in

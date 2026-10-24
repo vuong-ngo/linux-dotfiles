@@ -1,11 +1,11 @@
-/*****----- Main Rofi Configuration (Monochrome Theme) -----*****/
+/*****----- Main Rofi Configuration (Soft & Gentle Frosted Glass) -----*****/
 configuration {
     modi:                       "drun,run,window";
-    font:                       "JetBrainsMono Nerd Font Bold 11";
+    font:                       "JetBrainsMono Nerd Font 10.5";
     show-icons:                 true;
-    display-drun:               "󰀻 Apps";
-    display-run:                "󰆍 Run";
-    display-window:             "󰖯 Windows";
+    display-drun:               "󰀻  Apps";
+    display-run:                "󰆍  Run";
+    display-window:             "󰖯  Windows";
     drun-display-format:        "{name}";
     window-format:              "{w} · {c} · {t}";
 }
@@ -20,7 +20,7 @@ window {
     location:                   center;
     anchor:                     center;
     fullscreen:                 false;
-    width:                      750px;
+    width:                      680px;
     x-offset:                   0px;
     y-offset:                   0px;
 
@@ -28,7 +28,7 @@ window {
     margin:                     0px;
     padding:                    0px;
     border:                     1.5px solid;
-    border-radius:              20px;
+    border-radius:              18px;
     border-color:               @border-colour;
     background-color:           @background;
     cursor:                     "default";
@@ -37,9 +37,9 @@ window {
 /*****----- Main Box -----*****/
 mainbox {
     enabled:                    true;
-    spacing:                    15px;
+    spacing:                    14px;
     margin:                     0px;
-    padding:                    24px;
+    padding:                    22px;
     background-color:           transparent;
     children:                   [ "inputbar", "listview", "mode-switcher" ];
 }
@@ -49,10 +49,10 @@ inputbar {
     enabled:                    true;
     spacing:                    12px;
     margin:                     0px;
-    padding:                    12px 18px;
+    padding:                    11px 16px;
     border:                     1px solid;
-    border-radius:              14px;
-    border-color:               rgba(255, 255, 255, 0.08);
+    border-radius:              12px;
+    border-color:               @border-subtle;
     background-color:           @background-alt;
     text-color:                 @foreground;
     children:                   [ "textbox-prompt-colon", "entry" ];
@@ -61,11 +61,11 @@ inputbar {
 textbox-prompt-colon {
     enabled:                    true;
     expand:                     false;
-    str:                        " ";
+    str:                        "󰍉 ";
     background-color:           transparent;
     text-color:                 @accent;
     vertical-align:             0.5;
-    font:                       "JetBrainsMono Nerd Font Bold 13";
+    font:                       "JetBrainsMono Nerd Font 12";
 }
 
 entry {
@@ -73,10 +73,10 @@ entry {
     background-color:           transparent;
     text-color:                 inherit;
     cursor:                     text;
-    placeholder:                " Search applications...";
+    placeholder:                "Search applications, commands, windows...";
     placeholder-color:          @foreground-muted;
     vertical-align:             0.5;
-    font:                       "JetBrainsMono Nerd Font 11";
+    font:                       "JetBrainsMono Nerd Font 10.5";
 }
 
 /*****----- Listview -----*****/
@@ -92,9 +92,9 @@ listview {
     fixed-height:               true;
     fixed-columns:              true;
 
-    spacing:                    8px;
+    spacing:                    6px;
     margin:                     0px;
-    padding:                    8px 0px 0px 0px;
+    padding:                    4px 0px;
     background-color:           transparent;
     text-color:                 @foreground;
     cursor:                     "default";
@@ -105,8 +105,10 @@ element {
     enabled:                    true;
     spacing:                    12px;
     margin:                     0px;
-    padding:                    10px 14px;
-    border-radius:              12px;
+    padding:                    8px 12px;
+    border-radius:              10px;
+    border:                     1px solid;
+    border-color:               transparent;
     background-color:           transparent;
     text-color:                 @foreground;
     cursor:                     pointer;
@@ -115,18 +117,21 @@ element {
 element normal.normal, element alternate.normal {
     background-color:           transparent;
     text-color:                 @foreground;
+    border-color:               transparent;
 }
 
 element selected.normal {
     background-color:           @selected;
     text-color:                 @selected-text;
+    border-color:               @border-highlight;
 }
 
 element-icon {
     background-color:           transparent;
     text-color:                 inherit;
-    size:                       28px;
+    size:                       26px;
     cursor:                     inherit;
+    vertical-align:             0.5;
 }
 
 element-text {
@@ -136,28 +141,31 @@ element-text {
     cursor:                     inherit;
     vertical-align:             0.5;
     horizontal-align:           0.0;
-    font:                       "JetBrainsMono Nerd Font Bold 11";
+    font:                       "JetBrainsMono Nerd Font 10.5";
 }
 
 /*****----- Mode Switcher -----*****/
 mode-switcher {
     enabled:                    true;
-    spacing:                    12px;
-    margin:                     8px 0px 0px 0px;
+    spacing:                    10px;
+    margin:                     4px 0px 0px 0px;
     padding:                    0px;
     background-color:           transparent;
 }
 
 button {
-    padding:                    10px 16px;
-    border-radius:              12px;
+    padding:                    8px 14px;
+    border-radius:              10px;
+    border:                     1px solid;
+    border-color:               @border-subtle;
     background-color:           @background-alt;
     text-color:                 @foreground-muted;
     cursor:                     pointer;
-    font:                       "JetBrainsMono Nerd Font Bold 11";
+    font:                       "JetBrainsMono Nerd Font 10";
 }
 
 button selected {
     background-color:           @selected;
     text-color:                 @selected-text;
+    border-color:               @border-highlight;
 }
