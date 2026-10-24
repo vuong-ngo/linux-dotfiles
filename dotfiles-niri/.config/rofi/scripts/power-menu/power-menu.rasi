@@ -4,8 +4,7 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import                          "~/.config/rofi/colors.rasi"
-@import                          "~/.config/rofi/keybinds.rasi"
+@import                          "~/.config/rofi/global.rasi"
 
 /*****----- Main Window (Floating Top Bar) -----*****/
 window {
