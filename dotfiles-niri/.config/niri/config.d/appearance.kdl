@@ -64,7 +64,7 @@ layout {
 // https://niri-wm.github.io/niri/Configuration%3A-Recent-Windows.html
 
 recent-windows {
-    off
+    on
     debounce-ms 200
     open-delay-ms 150
 
