@@ -1,0 +1,65 @@
+# ==============================================================================
+# Alacritty Configuration - High Performance GPU-Accelerated Terminal
+# ==============================================================================
+
+[window]
+padding = { x = 15, y = 15 }
+dynamic_padding = true
+decorations = "None"
+opacity = 0.9
+blur = true
+
+[font]
+size = 9.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "SemiBold"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "ExtraBold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "SemiBold Italic"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font"
+style = "ExtraBold Italic"
+
+[cursor]
+style = { shape = "Block", blinking = "Never" }
+
+# --- Alacritty Signature Palette (Base16 Classic Dark) ---
+[colors.primary]
+background = "#181818"
+foreground = "#d8d8d8"
+
+[colors.cursor]
+text = "#181818"
+cursor = "#d8d8d8"
+
+[colors.selection]
+text = "#181818"
+background = "#d8d8d8"
+
+[colors.normal]
+black = "#282828"
+red = "#ac4242"
+green = "#90a959"
+yellow = "#f4bf75"
+blue = "#6a9fb5"
+magenta = "#aa759f"
+cyan = "#75b5aa"
+white = "#d8d8d8"
+
+[colors.bright]
+black = "#6b6b6b"
+red = "#c55555"
+green = "#aac474"
+yellow = "#feca88"
+blue = "#82b8c8"
+magenta = "#c28cb8"
+cyan = "#93d3c3"
+white = "#f8f8f8"

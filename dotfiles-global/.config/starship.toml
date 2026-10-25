@@ -1,14 +1,14 @@
 # ==============================================================================
-# ✦ PURE GRAPHITE MINIMALIST - STARSHIP THEME ✦
-# Unified with Neovim, Tmux & Terminal (Monochrome Zinc & Subtle Pastel Accents)
+# ✦ MODERN PASTEL MINIMALIST - STARSHIP THEME ✦
+# Unified with Neovim, Vim, Tmux & Terminal (Soft Light Green Directory & Pastel Accents)
 # ==============================================================================
 
 add_newline = true
 
-# Two-line clean minimalist layout:
-# Line 1: Directory + Git Branch/Status + Dev Runtimes + Duration
+# Two-line clean modern minimalist layout:
+# Line 1: Directory (Light Green) + Git Branch/Status + Dev Runtimes + Duration
 # Line 1 (Right): Clean Time (%H:%M)
-# Line 2: ❯ Prompt Character (Synced Vi-mode with Tmux modes)
+# Line 2: ❯ Prompt Character (Synced Vi-mode with Tmux & Neovim)
 format = """
 $username\
 $hostname\
@@ -42,8 +42,8 @@ right_format = """$time"""
 # ------------------------------------------------------------------------------
 [username]
 show_always = false
-style_user = "bold #e4e4e7"
-style_root = "bold #f43f5e"
+style_user = "bold #cdd6f4"
+style_root = "bold #f38ba8"
 format = "[$user]($style)@"
 
 [hostname]
@@ -52,31 +52,32 @@ format = "[$hostname]($style) "
 style = "bold #89b4fa"
 
 # ------------------------------------------------------------------------------
-# 2. DIRECTORY (Electric Ice Cyan - Futuristic High-Contrast Aesthetic)
+# 2. DIRECTORY (Soft Pastel Blue - Harmonized with Vim & Neovim)
 # ------------------------------------------------------------------------------
 [directory]
-format = "[󰉋 ](bold #00f5ff)[$path](bold #38bdf8)[$read_only]($read_only_style) "
-style = "bold #38bdf8"
-truncation_length = 3
+format = "[󰉋 ](bold #89b4fa)[$path](bold #89b4fa)[$read_only]($read_only_style) "
+style = "bold #89b4fa"
+repo_root_style = "bold #89b4fa"
+truncation_length = 4
 truncation_symbol = "…/"
 truncate_to_repo = false
 fish_style_pwd_dir_length = 0
 home_symbol = "~"
 read_only = " 󰌾"
-read_only_style = "bold #f43f5e"
+read_only_style = "bold #f38ba8"
 
 # ------------------------------------------------------------------------------
-# 3. GIT INTEGRATION (Clean Symbols, Synced with Neovim & Tmux 󰘬)
+# 3. GIT INTEGRATION (Clean Modern Symbols, Synced with Neovim & Tmux)
 # ------------------------------------------------------------------------------
 [git_branch]
-symbol = "󰘬 "
+symbol = " "
 format = "[$symbol$branch]($style) "
-style = "bold #c084fc"
+style = "bold #cba6f7"
 
 [git_commit]
 commit_hash_length = 7
 format = "[$hash]($style) "
-style = "bold #71717a"
+style = "bold #7f849c"
 
 [git_state]
 format = "[$state $progress_current/$progress_total]($style) "
@@ -84,7 +85,7 @@ style = "bold #f9e2af"
 
 [git_status]
 format = "([$all_status$ahead_behind]($style) )"
-style = "bold #f59e0b"
+style = "bold #fab387"
 conflicted = "✖ "
 ahead = "⇡${count} "
 behind = "⇣${count} "
@@ -110,14 +111,14 @@ disabled = false
 
 [terraform]
 format = "[󱁢 $workspace]($style) "
-style = "bold #c084fc"
+style = "bold #cba6f7"
 
 # ------------------------------------------------------------------------------
-# 5. DEV RUNTIMES & LANGUAGES (Harmonized Pastel Accents)
+# 5. DEV RUNTIMES & LANGUAGES (Harmonized Modern Pastel Accents)
 # ------------------------------------------------------------------------------
 [package]
 format = "[󰏗 $version]($style) "
-style = "bold #71717a"
+style = "bold #7f849c"
 
 [c]
 format = "[ $version]($style) "
@@ -157,9 +158,9 @@ format = "[󱎫 $duration]($style) "
 style = "bold #f9e2af"
 
 [jobs]
-symbol = "✦"
+symbol = "✦ "
 format = "[✦ $number]($style) "
-style = "bold #a1a1aa"
+style = "bold #b4befe"
 
 [battery]
 full_symbol = "󰁹 "
@@ -170,30 +171,30 @@ disabled = false
 
 [[battery.display]]
 threshold = 20
-style = "bold #f43f5e"
+style = "bold #f38ba8"
 
 [status]
 format = "[$symbol$status]($style) "
 symbol = "✘ "
-style = "bold #f43f5e"
+style = "bold #f38ba8"
 disabled = false
 
 # ------------------------------------------------------------------------------
-# 7. RIGHT PROMPT (Clean Minimalist Time, No Clutter Icon)
+# 7. RIGHT PROMPT (Clean Minimalist Time)
 # ------------------------------------------------------------------------------
 [time]
 disabled = false
 time_format = "%H:%M"
 format = "[$time]($style)"
-style = "bold #71717a"
+style = "bold #7f849c"
 
 # ------------------------------------------------------------------------------
 # 8. PROMPT CHARACTER (Synced Vi-mode with Tmux / Neovim)
 # ------------------------------------------------------------------------------
 [character]
 success_symbol = "[❯](bold #a6e3a1) "
-error_symbol = "[❯](bold #f43f5e) "
-vimcmd_symbol = "[❮](bold #e4e4e7) "
-vimcmd_visual_symbol = "[❮](bold #c084fc) "
-vimcmd_replace_symbol = "[❮](bold #f43f5e) "
+error_symbol = "[❯](bold #f38ba8) "
+vimcmd_symbol = "[❮](bold #fab387) "
+vimcmd_visual_symbol = "[❮](bold #cba6f7) "
+vimcmd_replace_symbol = "[❮](bold #f38ba8) "
 vimcmd_replace_one_symbol = "[❮](bold #89dceb) "
