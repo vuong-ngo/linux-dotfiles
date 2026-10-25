@@ -3,10 +3,10 @@
    Comfortable on the Eyes, Soft Pearl Typography & Harmonious Translucency
    ========================================================================== */
 
-@define-color glass-base          rgba(16, 16, 20, 0.82);
-@define-color glass-card          rgba(255, 255, 255, 0.04);
-@define-color glass-card-hover    rgba(255, 255, 255, 0.08);
-@define-color glass-card-active   rgba(255, 255, 255, 0.16);
+@define-color glass-base          rgba(18, 18, 24, 0.8);
+@define-color glass-card          rgba(255, 255, 255, 0.06);
+@define-color glass-card-hover    rgba(255, 255, 255, 0.12);
+@define-color glass-card-active   rgba(255, 255, 255, 0.20);
 
 /* Gentle, soothing typography (Non-glaring, relaxing contrast) */
 @define-color text-primary        #CBCDD6;
@@ -14,9 +14,9 @@
 @define-color text-dim            #60626E;
 @define-color text-highlight      #EAEAEF;
 
-@define-color border-glass        rgba(255, 255, 255, 0.11);
-@define-color border-subtle       rgba(255, 255, 255, 0.05);
-@define-color border-highlight    rgba(255, 255, 255, 0.22);
+@define-color border-glass        rgba(255, 255, 255, 0.15);
+@define-color border-subtle       rgba(255, 255, 255, 0.08);
+@define-color border-highlight    rgba(255, 255, 255, 0.30);
 
 @define-color danger              #fb7185;
 
@@ -44,7 +44,7 @@
   padding: 14px;
   margin: 10px;
   min-height: 680px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.40);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -86,7 +86,7 @@
   font-size: 12px;
   font-weight: 550;
   letter-spacing: 0.5px;
-  color: #A8AAB6;
+  color: #a8aab6;
 }
 
 .widget-title > button {
@@ -202,7 +202,7 @@ scale slider {
 }
 
 .widget-dnd > switch:checked {
-  background: rgba(255, 255, 255, 0.20);
+  background: rgba(255, 255, 255, 0.2);
   border-color: @border-highlight;
 }
 
@@ -224,7 +224,7 @@ scale slider {
   border-radius: 12px;
   padding: 10px 8px;
   margin: 3px;
-  color: #A8AAB6;
+  color: #a8aab6;
   font-weight: 450;
   font-size: 12px;
 }
@@ -250,18 +250,18 @@ scale slider {
 }
 
 .notification {
-  background: rgba(16, 16, 20, 0.88);
+  background: rgba(18, 18, 24, 0.72);
   border: 1.5px solid @border-glass;
-  border-left: 3px solid rgba(255, 255, 255, 0.45);
+  border-left: 3px solid rgba(255, 255, 255, 0.55);
   border-radius: 16px;
   margin-top: 8px;
   padding: 4px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .notification-critical {
   border-left-color: @danger;
-  background: rgba(26, 18, 22, 0.92);
+  background: rgba(30, 18, 24, 0.82);
 }
 
 .notification-content {
