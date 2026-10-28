@@ -88,7 +88,7 @@ recent-windows {
 
 // Global window geometry & styling (14px rounded corners, crisp and lightweight)
 window-rule {
-    geometry-corner-radius 14
+    geometry-corner-radius 0
     clip-to-geometry true
     draw-border-with-background true
     tiled-state true
@@ -191,15 +191,20 @@ window-rule {
 // https://niri-wm.github.io/niri/Configuration%3A-Layer-Rules.html
 
 layer-rule {
-    geometry-corner-radius 14
+    geometry-corner-radius 0
     popups {
-        geometry-corner-radius 10
+        geometry-corner-radius 0
     }
 }
 
 layer-rule {
     match namespace="^notifications$"
     block-out-from "screencast"
+}
+
+layer-rule {
+    match namespace="^launcher$"
+    match namespace="^rofi$"
 }
 
 layer-rule {
