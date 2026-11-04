@@ -62,8 +62,8 @@ ESSENTIAL_TOOLS=(
     "usbutils"                # Utilities for managing USB devices
     "pciutils"                # Utilities for managing PCI devices
     "xdg-user-dirs"           # Tool for managing user directories (e.g., Documents, Downloads)
-    "power-profiles-daemon"   # Tool
-    "ufw"                     # Firewall
+    "power-profiles-daemon"   # Daemon for managing power profiles (e.g., performance, balanced, power-saver)
+    "ufw"                     # Firewall management tool for securing the system
 )
 
 # ------------------------------------------------------------------------------
@@ -86,6 +86,7 @@ sudo systemctl enable dbus-broker
 sudo systemctl enable btrfs-scrub@-.timer
 sudo systemctl enable btrfs-scrub@home.timer
 sudo systemctl enable ufw
+sudo systemctl enable upower
 
 # ------------------------------------------------------------------------------
 # COMPLETION

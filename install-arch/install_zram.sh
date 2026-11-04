@@ -19,7 +19,7 @@ sudo pacman -S --needed zram-generator
 
 # 2. Write optimized configuration to the system
 echo -e "${YELLOW}[2/5] Creating config: Allocating 50% RAM, using zstd compression algorithm...${NC}"
-sudo tee /etc/systemd/zram-generator.conf > /dev/null <<EOF
+sudo tee /etc/systemd/zram-generator.conf >/dev/null <<EOF
 [zram0]
 zram-size = ram / 2
 compression-algorithm = zstd
@@ -34,12 +34,12 @@ sudo systemctl restart systemd-zram-setup@zram0.service
 
 # 4. Optimize Kernel parameters for ZRAM (NEW)
 echo -e "${YELLOW}[4/5] Optimizing Kernel Sysctl parameters for ZRAM...${NC}"
-sudo tee /etc/sysctl.d/99-zram.conf > /dev/null <<EOF
+sudo tee /etc/sysctl.d/99-zram.conf >/dev/null <<EOF
 vm.swappiness = 100
 vm.page-cluster = 0
 EOF
 # Apply sysctl parameters immediately without rebooting
-sudo sysctl --system > /dev/null 2>&1
+sudo sysctl --system >/dev/null 2>&1
 
 # 5. Check the results
 echo -e "${YELLOW}[5/5] Current system Swap & ZRAM statistics:${NC}"

@@ -19,13 +19,13 @@ echo -e "${BLUE}====================================================${NC}\n"
 # ESSENTIAL PACKAGES ONLY (No bloatware)
 # ------------------------------------------------------------------------------
 KDE_MINIMAL=(
-    "plasma-desktop"       # Core desktop environment
-    "sddm"                 # Login manager to switch between Hyprland/KDE
-    "plasma-nm"            # Network management applet
-    "kscreen"              # Display & Monitor management
+    "plasma-desktop" # Core desktop environment
+    "sddm"           # Login manager to switch between Hyprland/KDE
+    "plasma-nm"      # Network management applet
+    "kscreen"        # Display & Monitor management
     "kde-gtk-config"
-    "bluedevil"            # Bluetooth GUI
-    "dolphin"              # File manager (Great backup for Hyprland)
+    "bluedevil" # Bluetooth GUI
+    "dolphin"   # File manager (Great backup for Hyprland)
 )
 
 # ------------------------------------------------------------------------------

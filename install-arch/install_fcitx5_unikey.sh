@@ -19,11 +19,11 @@ echo -e "${BLUE}====================================================${NC}\n"
 # PACKAGE LIST FOR WAYLAND COMPATIBILITY
 # ------------------------------------------------------------------------------
 FCITX5_PACKAGES=(
-  "fcitx5"            # The core input method framework
-  "fcitx5-configtool" # GUI configuration tool (very important)
-  "fcitx5-gtk"        # Support for GTK applications (GNOME apps, Thunar, etc.)
-  "fcitx5-qt"         # Support for Qt applications (KDE apps, Telegram, etc.)
-  "fcitx5-unikey"     # The absolute best Vietnamese input engine (Telex/VNI)
+    "fcitx5"            # The core input method framework
+    "fcitx5-configtool" # GUI configuration tool (very important)
+    "fcitx5-gtk"        # Support for GTK applications (GNOME apps, Thunar, etc.)
+    "fcitx5-qt"         # Support for Qt applications (KDE apps, Telegram, etc.)
+    "fcitx5-unikey"     # The absolute best Vietnamese input engine (Telex/VNI)
 )
 
 # ------------------------------------------------------------------------------

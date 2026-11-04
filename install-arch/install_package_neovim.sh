@@ -19,15 +19,15 @@ echo -e "${BLUE}====================================================${NC}\n"
 # PACKAGE LIST FOR A FULL NEOVIM & LAZYVIM EXPERIENCE
 # ------------------------------------------------------------------------------
 NEOVIM_PACKAGES=(
-    "neovim"             # Core Neovim editor (v0.10+)
-    "git"                # Package manager backend for lazy.nvim
-    "gcc" "make"         # Compilers for Treesitter C/C++ parsers
-    "unzip" "curl"       # Utilities for Mason server downloads
-    "ripgrep"            # Ultra-fast grep engine for Snacks/Telescope
-    "fd"                 # Fast file search alternative to find
-    "fzf"                # Fuzzy finder integration
-    "nodejs" "npm"       # Language server runtime (tsserver, pyright, etc.)
-    "python-pynvim"      # Python provider for Neovim plugins
+    "neovim"               # Core Neovim editor (v0.10+)
+    "git"                  # Package manager backend for lazy.nvim
+    "gcc" "make"           # Compilers for Treesitter C/C++ parsers
+    "unzip" "curl"         # Utilities for Mason server downloads
+    "ripgrep"              # Ultra-fast grep engine for Snacks/Telescope
+    "fd"                   # Fast file search alternative to find
+    "fzf"                  # Fuzzy finder integration
+    "nodejs" "npm"         # Language server runtime (tsserver, pyright, etc.)
+    "python-pynvim"        # Python provider for Neovim plugins
     "xclip" "wl-clipboard" # Clipboard provider for X11 & Wayland
 )
 
