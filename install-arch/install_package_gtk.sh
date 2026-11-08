@@ -24,6 +24,7 @@ ESSENTIAL_TOOLS=(
     "btop"      # Process & Resource monitor
     "nvtop"     # GPU monitor for your GTX 1650
     "tmux"      # Terminal multiplexer for advanced workflows
+    "mpv"       # Look video & audio in terminal
 
     # 2. File & Disk Management (GNOME/GTK Stack)
     "gnome-disk-utility" # Disk partitioning & S.M.A.R.T monitoring
@@ -33,13 +34,12 @@ ESSENTIAL_TOOLS=(
     "gnome-calculator"  # Feature-rich calculator
     "gnome-font-viewer" # Preview and install fonts
     # "gnome-calendar"       # Event management
-    "gnome-clocks" # Alarm, Timer, Stopwatch
-    "loupe"        # Modern, fast image viewer
-    # "decibels"             # Minimalist music player (Replaces Elisa)
+    "gnome-clocks"         # Alarm, Timer, Stopwatch
+    "loupe"                # Modern, fast image viewer
+    "decibels"             # Minimalist music player (Replaces Elisa)
     "gnome-sound-recorder" # GNOME audio recorder (Replaces KRecorder)
-    # "showtime"             # Best video player for Hyprland
-    "mpv"      # Look video & audio in terminal
-    "snapshot" # Camera
+    "showtime"             # Best video player
+    "snapshot"             # Camera
 
     # 4. Desktop UI & Theme Engine
     "nwg-look"                  # Core GTK Theme/Icon/Cursor manager
