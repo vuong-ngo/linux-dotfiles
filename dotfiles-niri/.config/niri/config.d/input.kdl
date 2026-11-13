@@ -5,9 +5,9 @@
 //  |___/\____/\____/_/|_/\___/ /_/|_/\___/\____/ 
 // ================================================
 
-//=====================================
+// =====================================
 // INPUT CONFIGURATION
-//=====================================
+// =====================================
 // https://niri-wm.github.io/niri/Configuration%3A-Input.html
 
 input {
@@ -15,22 +15,35 @@ input {
         xkb {
             layout "us"
         }
+        repeat-delay 300
+        repeat-rate 35
     }
 
     touchpad {
         tap
-        accel-speed 0.2
-        accel-profile "adaptive"
+        drag false
+        dwt
+        accel-speed 0.25
+        accel-profile "flat"
+
         scroll-method "two-finger"
+        scroll-factor 1.0
         natural-scroll
     }
 
     mouse {
+        accel-speed 0.0
+        accel-profile "flat"
+
+        scroll-factor 1.0
+    }
+
+    trackpoint {
+        accel-speed 0.1
         accel-profile "flat"
     }
 }
 
 cursor {
     xcursor-size 24
-    hide-after-inactive-ms 5000
 }
