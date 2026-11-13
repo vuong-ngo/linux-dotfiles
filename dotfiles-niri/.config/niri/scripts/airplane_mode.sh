@@ -2,7 +2,7 @@
 
 # ============================================================
 # Script: Airplane Mode Toggle
-# Description: Toggles Wi-Fi and Bluetooth radio interfaces via nmcli and rfkill
+# Description: Toggles Wi-Fi and Bluetooth without pkexec prompt
 # ============================================================
 
 show_help() {
@@ -15,9 +15,6 @@ Description:
 
 Options:
   -h, --help    Show this help message and exit
-
-Examples:
-  $(basename "$0")       Toggle airplane mode on/off
 EOF
 }
 
@@ -26,19 +23,25 @@ if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
   exit 0
 fi
 
+# Check current state of Wi-Fi and rfkill
 WIFI_STATE=$(nmcli radio wifi 2>/dev/null || echo "disabled")
+RFKILL_BLOCKED=$(rfkill list wifi | grep -c "Soft blocked: yes")
 
-if [ "$WIFI_STATE" = "enabled" ]; then
+if [[ "$WIFI_STATE" == "enabled" && "$RFKILL_BLOCKED" -eq 0 ]]; then
+  # Enable Airplane Mode: Turn off NetworkManager radios and block rfkill
   nmcli radio all off
-  pkexec rfkill block all &
+  rfkill block all 2>/dev/null || true
+
   notify-send -a "Network" -u normal -t 2000 \
     -h string:x-canonical-private-synchronous:airplane-mode \
     -i airplane-mode-symbolic \
     "Airplane Mode" "Enabled (All radios off)"
 else
-  pkexec rfkill unblock all &
+  # Disable Airplane Mode: Unblock rfkill and turn on NetworkManager radios
+  rfkill unblock all 2>/dev/null || true
+  sleep 0.2
   nmcli radio all on
-  sleep 1
+
   notify-send -a "Network" -u normal -t 2000 \
     -h string:x-canonical-private-synchronous:airplane-mode \
     -i network-wireless-signal-excellent-symbolic \

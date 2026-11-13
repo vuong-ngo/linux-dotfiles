@@ -6,73 +6,51 @@
 # Platform: Arch Linux x Niri x swayidle x hyprlock
 # ============================================================
 
-# Define paths and default configuration values
 LOCK_FILE="/tmp/keep_awake.lock"
 DEFAULT_MINUTES=5
 
-# Display help message and usage instructions
-show_help() {
-  cat <<EOF
-Usage: $(basename "$0") [MINUTES|-h|--help]
+start_swayidle() {
+  local timeout_sec=$(( $1 * 60 ))
+  local sleep_timeout_sec=$(( timeout_sec * 2 ))
 
-Description:
-  Toggles Keep-Awake mode on/off. When enabled, stops swayidle
-  service to prevent screen lock (hyprlock), dimming, and sleep.
-  When disabled, restores swayidle service with the specified timeout.
-
-Arguments:
-  MINUTES       Idle timeout in minutes before locking (default: 5)
-  -h, --help    Show this help message and exit
-
-Examples:
-  $(basename "$0")       Toggle keep-awake state using default 5 minutes
-  $(basename "$0") 10    Toggle state and set idle timeout to 10 minutes
-EOF
+  pkill -x "swayidle" 2>/dev/null || true
+  if command -v swayidle >/dev/null 2>&1; then
+    nohup swayidle -w \
+      timeout "$timeout_sec" 'hyprlock' \
+      timeout "$sleep_timeout_sec" 'niri msg action power-off-monitors' \
+      resume 'niri msg action power-on-monitors' \
+      before-sleep 'hyprlock' >/dev/null 2>&1 &
+    disown
+  fi
 }
 
-# Check if help flag is passed
-if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
-  show_help
+# Mode: Startup with Niri: Always remove old lock and start swayidle
+if [[ "${1:-}" == "init" ]]; then
+  TIMEOUT_MIN="${2:-$DEFAULT_MINUTES}"
+  rm -f "$LOCK_FILE"
+  start_swayidle "$TIMEOUT_MIN"
   exit 0
 fi
 
-# Retrieve timeout from argument or fall back to the default value
 TIMEOUT_MIN="${1:-$DEFAULT_MINUTES}"
-TIMEOUT_SEC=$((TIMEOUT_MIN * 60))
-SLEEP_TIMEOUT_SEC=$((TIMEOUT_SEC * 2))
 
-# Check if keep-awake is currently active (lock file exists)
+# If the lock file exists, it means Keep-Awake is currently active. Remove the lock file and restart swayidle with the specified timeout.
 if [ -f "$LOCK_FILE" ]; then
-  # Remove the lock file to restore normal state
   rm -f "$LOCK_FILE"
+  start_swayidle "$TIMEOUT_MIN"
 
-  # Restart swayidle with hyprlock and the defined timeouts
-  if command -v swayidle >/dev/null 2>&1; then
-    pkill -x "swayidle" 2>/dev/null || true
-    swayidle -w \
-      timeout "$TIMEOUT_SEC" 'hyprlock' \
-      timeout "$SLEEP_TIMEOUT_SEC" 'niri msg action power-off-monitors' \
-      before-sleep 'hyprlock' >/dev/null 2>&1 &
-  fi
-  systemctl --user start swayidle.service 2>/dev/null || true
-
-  # Send notification indicating keep-awake is disabled
   notify-send -a "Power" -u normal -t 2000 \
     -h string:x-canonical-private-synchronous:keep-awake \
     -i preferences-desktop-screensaver \
-    "Keep Awake" "Disabled (Auto-lock in ${TIMEOUT_MIN}m)"
+    "Keep Awake" "disabled (auto lock after ${TIMEOUT_MIN} minutes)"
   exit 0
 fi
 
-# Create lock file to activate keep-awake mode
+# If the lock file does not exist, it means Keep-Awake is currently inactive. Create the lock file and stop swayidle to prevent auto-locking.
 touch "$LOCK_FILE"
-
-# Terminate all active swayidle instances and systemd user services
 pkill -x "swayidle" 2>/dev/null || true
-systemctl --user stop swayidle.service 2>/dev/null || true
 
-# Send notification indicating keep-awake is active
 notify-send -a "Power" -u normal -t 2000 \
   -h string:x-canonical-private-synchronous:keep-awake \
   -i display-brightness \
-  "Keep Awake" "Enabled (Screen will stay awake)"
+  "Keep Awake" "enabled (screen always on)"
