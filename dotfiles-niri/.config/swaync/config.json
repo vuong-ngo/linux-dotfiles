@@ -21,8 +21,6 @@
   "script-fail-notify": false,
   "widgets": [
     "title",
-    "mpris",
-    "volume",
     "backlight",
     "buttons-grid",
     "dnd",
@@ -36,10 +34,6 @@
     },
     "dnd": {
       "text": "󰍶 Do Not Disturb"
-    },
-    "volume": {
-      "label": "󰕾",
-      "show-per-app": true
     },
     "backlight": {
       "label": "󰃠"

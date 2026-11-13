@@ -1,51 +1,52 @@
 /* ==========================================================================
-   SWAYNC - UNIVERSAL OBSIDIAN FROSTED GLASS (SOFT & GENTLE THEME)
-   Comfortable on the Eyes, Soft Pearl Typography & Harmonious Translucency
+   SWAYNC - MODERN OBSIDIAN ARCHITECTURAL THEME (100% SHARP SQUARE & GENTLE GLASS)
+   Pure 0px Corners, Refined Modular Boxes, Gentle Glacier Accents
    ========================================================================== */
 
-@define-color glass-base          rgba(18, 18, 24, 0.8);
-@define-color glass-card          rgba(255, 255, 255, 0.06);
-@define-color glass-card-hover    rgba(255, 255, 255, 0.12);
-@define-color glass-card-active   rgba(255, 255, 255, 0.20);
+@define-color glass-base          rgba(16, 17, 23, 0.92);
+@define-color glass-card          rgba(255, 255, 255, 0.05);
+@define-color glass-card-hover    rgba(255, 255, 255, 0.09);
+@define-color glass-card-active   rgba(125, 211, 252, 0.16);
 
-/* Gentle, soothing typography (Non-glaring, relaxing contrast) */
-@define-color text-primary        #CBCDD6;
-@define-color text-secondary      #888A96;
-@define-color text-dim            #60626E;
-@define-color text-highlight      #EAEAEF;
+/* Modern, gentle typography (Crisp pearl white & clear slate) */
+@define-color text-primary        #F4F5F8;
+@define-color text-secondary      #9EA2B2;
+@define-color text-dim            #6B6F80;
+@define-color text-highlight      #FFFFFF;
 
-@define-color border-glass        rgba(255, 255, 255, 0.15);
-@define-color border-subtle       rgba(255, 255, 255, 0.08);
-@define-color border-highlight    rgba(255, 255, 255, 0.30);
+/* Delicate Specular Hairline Glass Borders & Gentle Glacier Glow */
+@define-color border-glass        rgba(255, 255, 255, 0.12);
+@define-color border-subtle       rgba(255, 255, 255, 0.06);
+@define-color border-highlight    #7DD3FC;
+@define-color accent-glow         #7DD3FC;
+@define-color danger              #F87171;
 
-@define-color danger              #fb7185;
-
-/* Reset & Global Typography (Regular weight, clean & soothing) */
+/* Reset & Global Typography (Bold & clear, sharp square) */
 * {
   font-family:
     "JetBrainsMono Nerd Font", "JetBrainsMono NF", "JetBrains Mono", monospace;
-  font-size: 13px;
-  font-weight: 400;
+  font-size: 13.5px;
+  font-weight: 600;
   color: @text-primary;
   box-shadow: none;
   text-shadow: none;
   border: none;
+  border-radius: 0px;
   outline: none;
-  transition: all 0.15s ease-in-out;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ==========================================================================
-   Control Center Main Window
+   Control Center Main Window (Pure 0px Sharp Geometry)
    ========================================================================== */
 .control-center {
   background: @glass-base;
-  border: 1.5px solid @border-glass;
-  border-radius: 20px;
-  padding: 14px;
+  border: 1px solid @border-glass;
+  border-radius: 0px;
+  padding: 16px;
   margin: 10px;
   min-height: 680px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
 .control-center-list {
@@ -57,17 +58,15 @@
 }
 
 /* ==========================================================================
-   Inner Widget Containers (Frosted Cards)
+   Inner Widget Containers (Elevated Sharp Frosted Cards)
    ========================================================================== */
 .widget-title,
 .widget-dnd,
-.widget-volume,
 .widget-backlight,
-.widget-buttons-grid,
-.widget-mpris {
+.widget-buttons-grid {
   background: @glass-card;
   border: 1px solid @border-subtle;
-  border-radius: 14px;
+  border-radius: 0px;
   margin-bottom: 10px;
   padding: 12px 14px;
 }
@@ -83,136 +82,98 @@
 }
 
 .widget-title > label {
-  font-size: 12px;
-  font-weight: 550;
-  letter-spacing: 0.5px;
-  color: #a8aab6;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: @text-highlight;
 }
 
 .widget-title > button {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid @border-subtle;
-  border-radius: 10px;
-  padding: 4px 12px;
-  font-size: 11.5px;
-  font-weight: 450;
+  border-radius: 0px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 700;
   color: @text-secondary;
 }
 
 .widget-title > button:hover {
-  background: rgba(255, 255, 255, 0.14);
+  background: @glass-card-hover;
   color: @text-highlight;
   border-color: @border-highlight;
 }
 
 /* ==========================================================================
-   Widget: MPRIS Media Player
+   Widget: Slider (Brightness - Sharp Track & Gentle Glacier Accent)
    ========================================================================== */
-.widget-mpris {
-  padding: 12px;
-}
-
-.widget-mpris-album-art {
-  border-radius: 10px;
-  margin-right: 12px;
-}
-
-.widget-mpris-title {
-  font-size: 12.5px;
-  font-weight: 550;
-  color: @text-highlight;
-}
-
-.widget-mpris-subtitle {
-  font-size: 11.5px;
-  font-weight: 400;
-  color: @text-secondary;
-  margin-top: 2px;
-}
-
-.widget-mpris button {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid @border-subtle;
-  border-radius: 10px;
-  padding: 6px 12px;
-  margin: 0 3px;
-  color: @text-primary;
-}
-
-.widget-mpris button:hover {
-  background: rgba(255, 255, 255, 0.14);
-  color: @text-highlight;
-  border-color: @border-highlight;
-}
-
-/* ==========================================================================
-   Widget: Sliders (Volume & Brightness)
-   ========================================================================== */
-.widget-volume label,
 .widget-backlight label {
-  font-size: 13.5px;
-  color: @text-primary;
+  font-size: 14px;
+  font-weight: 700;
+  color: @accent-glow;
   margin-right: 10px;
 }
 
 scale trough {
   background: rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
+  border: 1px solid @border-subtle;
+  border-radius: 0px;
   min-height: 8px;
 }
 
 scale highlight {
-  background: rgba(255, 255, 255, 0.65);
-  border-radius: 8px;
+  background: @accent-glow;
+  border-radius: 0px;
 }
 
 scale slider {
   background: transparent;
   min-width: 0px;
   min-height: 0px;
+  border-radius: 0px;
 }
 
 /* ==========================================================================
-   Widget: DND (Do Not Disturb Switch)
+   Widget: DND (Do Not Disturb Switch - Sharp Square Block)
    ========================================================================== */
 .widget-dnd {
   padding: 10px 14px;
 }
 
 .widget-dnd > label {
-  font-size: 12px;
-  font-weight: 450;
+  font-size: 13px;
+  font-weight: 700;
   color: @text-primary;
 }
 
 .widget-dnd > switch {
-  background: rgba(255, 255, 255, 0.09);
-  border: 1px solid @border-glass;
-  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid @border-subtle;
+  border-radius: 0px;
   min-height: 22px;
-  min-width: 42px;
+  min-width: 44px;
 }
 
 .widget-dnd > switch slider {
   background: @text-secondary;
-  border-radius: 50%;
+  border-radius: 0px;
   min-width: 18px;
   min-height: 18px;
   margin: 2px;
 }
 
 .widget-dnd > switch:checked {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: @border-highlight;
+  background: @accent-glow;
+  border-color: @accent-glow;
 }
 
 .widget-dnd > switch:checked slider {
-  background: @text-highlight;
-  margin-left: 20px;
+  background: #101117;
+  margin-left: 22px;
 }
 
 /* ==========================================================================
-   Widget: Quick Toggle Buttons Grid
+   Widget: Quick Toggle Buttons Grid (Sharp Square Cards)
    ========================================================================== */
 .widget-buttons-grid {
   padding: 8px;
@@ -221,17 +182,17 @@ scale slider {
 .widget-buttons-grid flowboxchild button {
   background: @glass-card;
   border: 1px solid @border-subtle;
-  border-radius: 12px;
+  border-radius: 0px;
   padding: 10px 8px;
   margin: 3px;
-  color: #a8aab6;
-  font-weight: 450;
-  font-size: 12px;
+  color: @text-primary;
+  font-weight: 600;
+  font-size: 12.5px;
 }
 
 .widget-buttons-grid flowboxchild button:hover {
   background: @glass-card-hover;
-  border-color: @border-glass;
+  border-color: @border-highlight;
   color: @text-highlight;
 }
 
@@ -239,29 +200,29 @@ scale slider {
   background: @glass-card-active;
   color: @text-highlight;
   border-color: @border-highlight;
-  font-weight: 550;
+  font-weight: 700;
 }
 
 /* ==========================================================================
-   Notification Popup Cards (Soothing Glassmorphism)
+   Notification Popup Cards (Sharp Geometric Floating Cards)
    ========================================================================== */
 .notification-row {
   background: transparent;
 }
 
 .notification {
-  background: rgba(18, 18, 24, 0.72);
-  border: 1.5px solid @border-glass;
-  border-left: 3px solid rgba(255, 255, 255, 0.55);
-  border-radius: 16px;
+  background: rgba(16, 17, 23, 0.92);
+  border: 1px solid @border-glass;
+  border-left: 3px solid @accent-glow;
+  border-radius: 0px;
   margin-top: 8px;
   padding: 4px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.60), 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
 .notification-critical {
   border-left-color: @danger;
-  background: rgba(30, 18, 24, 0.82);
+  background: rgba(28, 16, 20, 0.95);
 }
 
 .notification-content {
@@ -269,27 +230,29 @@ scale slider {
 }
 
 .notification-content .summary {
-  font-size: 13px;
-  font-weight: 550;
+  font-size: 13.5px;
+  font-weight: 700;
   color: @text-highlight;
 }
 
 .notification-content .body {
-  font-size: 11.5px;
-  font-weight: 400;
+  font-size: 12.5px;
+  font-weight: 600;
   color: @text-secondary;
-  margin-top: 3px;
-  line-height: 1.35;
+  margin-top: 4px;
+  line-height: 1.4;
 }
 
 .notification-content .time {
-  font-size: 10.5px;
+  font-size: 11px;
+  font-weight: 600;
   color: @text-dim;
 }
 
 .close-button {
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid @border-subtle;
+  border-radius: 0px;
   color: @text-secondary;
   margin: 6px;
   padding: 2px;
@@ -298,6 +261,7 @@ scale slider {
 }
 
 .close-button:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: @glass-card-hover;
+  border-color: @border-highlight;
   color: @text-highlight;
 }
