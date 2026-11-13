@@ -16,14 +16,10 @@ spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPL
 spawn-at-startup "systemctl" "--user" "import-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 
 spawn-at-startup "/usr/lib/gnome-settings-daemon/gsd-xsettings"
-spawn-at-startup "/usr/lib/gnome-settings-daemon/gsd-power"
-spawn-at-startup "/usr/lib/gnome-settings-daemon/gsd-keyboard"
 
 spawn-at-startup "swaync"
-spawn-at-startup "~/.config/niri/scripts/keep_awake.sh 5"
+spawn-at-startup "$HOME/.config/niri/scripts/keep_awake.sh 5"
 spawn-sh-at-startup "swaybg -i $HOME/.cache/current_wallpaper -m fill"
 
 spawn-at-startup "fcitx5" "-d"
-spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
-spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
