@@ -14,7 +14,6 @@ fi
 # ------------------------------------------------------------
 # 2. SHELL OPTIONS & DIRECTORY NAVIGATION
 # ------------------------------------------------------------
-setopt AUTO_CD              # Type folder name directly to cd
 setopt AUTO_PUSHD           # Maintain directory stack
 setopt PUSHD_IGNORE_DUPS    # Don't push duplicate directories
 setopt PUSHD_SILENT         # Silent directory stack operations
@@ -142,9 +141,6 @@ alias mkdir='mkdir -p'
 
 # Colored file listing
 alias ls='ls --color=auto --group-directories-first'
-alias ll='ls -lh --color=auto --group-directories-first'
-alias la='ls -lAh --color=auto --group-directories-first'
-alias l='ls -CF --color=auto'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 
