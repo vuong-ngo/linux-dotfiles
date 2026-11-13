@@ -11,8 +11,7 @@
 // https://niri-wm.github.io/niri/Configuration%3A-Overview.html
 
 overview {
-    zoom 0.6
-    backdrop-color "rgba(18, 18, 20, 0.90)"
+    zoom 0.8
     workspace-shadow { off; }
 }
 
@@ -47,7 +46,7 @@ layout {
 
     insert-hint {
         on
-        color "rgba(255, 255, 255, 0.35)"
+        color "rgba(255, 255, 255, 0.25)"
     }
 
     struts {
@@ -64,15 +63,13 @@ layout {
 // https://niri-wm.github.io/niri/Configuration%3A-Recent-Windows.html
 
 recent-windows {
-    on
+    off
     debounce-ms 200
     open-delay-ms 150
 
     highlight {
         active-color "#ffffffaa"
         urgent-color "#ffffffff"
-        padding 10
-        corner-radius 12
     }
 
     previews {
