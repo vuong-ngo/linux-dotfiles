@@ -26,13 +26,14 @@ NIRI_PACKAGES=(
     "xorg-xwayland"             # Core XWayland library
     "xdg-desktop-portal"        # Core portal communication
     "xdg-desktop-portal-gnome"  # Crucial for screen sharing on Niri
+    "xdg-desktop-portal-gtk"    # Required for file picker dialogs & dark mode theme propagation
     "qt5-wayland" "qt6-wayland" # Native Wayland support for Qt apps
 
     # --- File Manager ---
     "gvfs" "gvfs-mtp" # Trash support, network mounting, and mobile devices
 
     # --- Desktop Environment & UI Components ---
-    "rofi-wayland"        # Application launcher
+    "rofi"                # Application launcher
     "swaync"              # Notification daemon & Control Center
     "swaybg"              # Wallpaper daemon
     "hyprlock" "swayidle" # HYPRLAND LOCKING & IDLE MANAGEMENT
@@ -42,6 +43,7 @@ NIRI_PACKAGES=(
     "polkit-gnome"            # Graphical password prompts for root access
     "wl-clipboard" "cliphist" # Clipboard manager & history
     "brightnessctl"           # CLI for display brightness
+    "jq"                      # JSON processor (required for wl-mirror output parsing)
     "libnotify"               # Desktop notifications library
     "wlsunset"                # Blue light filter
     "wl-mirror"               # Mirror screen
