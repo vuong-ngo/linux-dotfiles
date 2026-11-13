@@ -20,11 +20,15 @@ echo -e "${BLUE}====================================================${NC}\n"
 # ------------------------------------------------------------------------------
 ESSENTIAL_TOOLS=(
     # 1. System Monitors (The "Pro" CLI Suite)
-    "fastfetch" # System info summary
-    "btop"      # Process & Resource monitor
-    "nvtop"     # GPU monitor for your GTX 1650
-    "tmux"      # Terminal multiplexer for advanced workflows
-    "mpv"       # Look video & audio in terminal
+    "fastfetch"      # System info summary
+    "btop"           # Process & Resource monitor
+    "nvtop"          # GPU monitor for your GTX 1650
+    "tmux"           # Terminal multiplexer for advanced workflows
+    "neovim"         # Your primary coding environment
+    "pacman-contrib" # System clean-up tools (paccache)
+    "xclip"          # Clipboard management in terminal
+
+    # "mpv"       # Look video & audio in terminal
 
     # 2. File & Disk Management (GNOME/GTK Stack)
     "gnome-disk-utility" # Disk partitioning & S.M.A.R.T monitoring
@@ -45,11 +49,6 @@ ESSENTIAL_TOOLS=(
     "nwg-look"                  # Core GTK Theme/Icon/Cursor manager
     "gsettings-desktop-schemas" # Essential for GNOME app settings
     "xdg-desktop-portal-gnome"  # Portal support for GTK apps
-
-    # 5. Developer & Maintenance
-    "neovim"         # Your primary coding environment
-    "pacman-contrib" # System clean-up tools (paccache)
-    "xclip"          # Clipboard management in terminal
 )
 
 # ------------------------------------------------------------------------------
