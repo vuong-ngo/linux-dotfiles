@@ -1,31 +1,37 @@
-/*****----- Colors - Universal Obsidian Frosted Glass (Soft & Gentle Palette) -----*****/
+/*****----- Colors - Universal Obsidian Frosted Glass (SwayNC Architectural Style & Bold Clear Type) -----*****/
 * {
-    /* Pure Neutral Frosted Glass (Zero hue bias, softly diffuses any wallpaper background) */
-    background:          rgba(16, 16, 20, 0.82); /* Frosted Obsidian Glass (82% opacity) */
-    background-alt:      rgba(255, 255, 255, 0.04); /* Soft translucent inner container */
-    background-card:     rgba(255, 255, 255, 0.06); /* Elevated frosted card */
-    background-hover:    rgba(255, 255, 255, 0.08); /* Gentle hover sheen */
+    /* Pure Frosted Obsidian Glass (Matches SwayNC glass-base) */
+    background:          rgba(16, 17, 23, 0.94); /* Frosted Obsidian Glass */
+    background-alt:      rgba(255, 255, 255, 0.04); /* Translucent inner container */
+    background-card:     rgba(255, 255, 255, 0.05); /* SwayNC-styled modular card */
+    background-hover:    rgba(255, 255, 255, 0.09); /* Sheen hover */
 
-    /* Typography - Soft, Soothing & Gentle (Non-glaring, relaxing on eyes) */
-    foreground:          #CBCDD6;                  /* Soft Warm Pearl (Gentle & Calm) */
-    foreground-muted:    #888A96;                  /* Soft Slate Gray */
-    foreground-dim:      #60626E;                  /* Subtle Dim Text */
+    /* Typography - Bold, Crisp & High-Definition (Matches SwayNC pearl & slate) */
+    foreground:          #F4F5F8;                  /* Crisp Pearl White (High legibility) */
+    foreground-muted:    #A2A6B6;                  /* Clear Slate Gray */
+    foreground-dim:      #6B6F80;                  /* Subtle Dim Slate */
 
-    /* Gentle Frosted Selection Capsule (Whisper-soft highlight, no white flash) */
-    selected:            rgba(255, 255, 255, 0.12); /* Soft Luminous Frosted Highlight */
-    selected-text:       #EAEAEF;                  /* Pearl White Text on Selection */
-    selected-alt:        rgba(255, 255, 255, 0.07); /* Secondary Subtle Highlight */
+    /* Modern Soft Glacier Glow (Matches SwayNC accent-glow & selection) */
+    selected:            rgba(125, 211, 252, 0.16); /* SwayNC glass-card-active */
+    selected-text:       #FFFFFF;                  /* Pure White Highlight */
+    selected-alt:        rgba(125, 211, 252, 0.10); /* Secondary Highlight */
 
-    /* Accents (Gentle, elegant, neutral) */
-    accent:              #C4C6D0;                  /* Gentle Platinum Accent */
-    accent-cyan:         #38BDF8;                  /* Soft Sky Glow */
-    accent-amber:        #FBBF24;                  /* Warm Amber Warning */
-    urgent:              #FB7185;                  /* Soft Rose Alert */
+    /* Accents - Gentle Glacier Sky & Rose Danger */
+    accent:              #7DD3FC;                  /* Soft Glacier Sky Cyan */
+    accent-cyan:         #7DD3FC;                  /* Glacier Glow */
+    accent-amber:        #FBBF24;                  /* Soft Amber */
+    urgent:              #F87171;                  /* Coral Rose Danger */
 
-    /* Specular Hairline Glass Borders (Crisp definition over any wallpaper) */
-    border-colour:       rgba(255, 255, 255, 0.11); /* Delicate Glass Hairline */
-    border-subtle:       rgba(255, 255, 255, 0.05); /* Divider / Inner Border */
-    border-highlight:    rgba(255, 255, 255, 0.20); /* Active Element Border */
+    /* SwayNC-style Specular Hairline Borders & Left Accent Lines */
+    border-colour:       rgba(255, 255, 255, 0.12); /* Subtle Glass Hairline */
+    border-subtle:       rgba(255, 255, 255, 0.06); /* Divider / Card Border */
+    border-highlight:    #7DD3FC;                  /* Active Glacier Border */
+
+    /* 100% Sharp Square Corners (Zero Radii) */
+    radius-window:       0px;
+    radius-box:          0px;
+    radius-item:         0px;
+    radius-tag:          0px;
 
     background-color:    transparent;
 }

@@ -1,7 +1,7 @@
-/*****----- NVIDIA Launcher Dedicated Rofi Theme -----*****/
+/*****----- NVIDIA Launcher Dedicated Rofi Theme (SwayNC Architectural Style & Compact 10.5 Type) -----*****/
 configuration {
     modi:                       "drun";
-    font:                       "JetBrainsMono Nerd Font Bold 11";
+    font:                       "JetBrainsMono Nerd Font Bold 10.5";
     show-icons:                 true;
     display-drun:               "󰍛 NVIDIA GPU";
     drun-display-format:        "{name}";
@@ -10,16 +10,16 @@ configuration {
 /*****----- Imports -----*****/
 @import                         "~/.config/rofi/global.rasi"
 
-/*****----- Main Window -----*****/
+/*****----- Main Window (Pure 0px Sharp Geometry) -----*****/
 window {
     transparency:               "real";
     location:                   center;
     anchor:                     center;
     fullscreen:                 false;
-    width:                      750px;
+    width:                      720px;
 
-    border:                     1.5px solid;
-    border-radius:              20px;
+    border:                     1px;
+    border-radius:              0px;
     border-color:               @border-colour;
     background-color:           @background;
     cursor:                     "default";
@@ -28,20 +28,20 @@ window {
 /*****----- Main Box -----*****/
 mainbox {
     enabled:                    true;
-    spacing:                    15px;
-    padding:                    24px;
+    spacing:                    12px;
+    padding:                    22px;
     background-color:           transparent;
     children:                   [ "inputbar", "listview" ];
 }
 
-/*****----- Inputbar -----*****/
+/*****----- Inputbar (SwayNC Modular Framed Container) -----*****/
 inputbar {
     enabled:                    true;
     spacing:                    12px;
-    padding:                    12px 18px;
-    border:                     1px solid;
-    border-radius:              14px;
-    border-color:               rgba(255, 255, 255, 0.08);
+    padding:                    10px 16px;
+    border:                     1px;
+    border-radius:              0px;
+    border-color:               @border-subtle;
     background-color:           @background-alt;
     text-color:                 @foreground;
     children:                   [ "textbox-prompt-colon", "entry" ];
@@ -54,7 +54,7 @@ textbox-prompt-colon {
     background-color:           transparent;
     text-color:                 @accent;
     vertical-align:             0.5;
-    font:                       "JetBrainsMono Nerd Font Bold 13";
+    font:                       "JetBrainsMono Nerd Font Bold 12";
 }
 
 entry {
@@ -62,10 +62,10 @@ entry {
     background-color:           transparent;
     text-color:                 inherit;
     cursor:                     text;
-    placeholder:                " Launch app on discrete NVIDIA GPU...";
+    placeholder:                " Launch app on discrete NVIDIA GPU";
     placeholder-color:          @foreground-muted;
     vertical-align:             0.5;
-    font:                       "JetBrainsMono Nerd Font 11";
+    font:                       "JetBrainsMono Nerd Font Bold 10.5";
 }
 
 /*****----- Listview -----*****/
@@ -80,31 +80,37 @@ listview {
     fixed-height:               true;
     fixed-columns:              true;
 
-    spacing:                    8px;
-    padding:                    8px 0px 0px 0px;
+    spacing:                    7px;
+    padding:                    4px 0px 0px 0px;
     background-color:           transparent;
     text-color:                 @foreground;
 }
 
-/*****----- Elements -----*****/
+/*****----- Elements (SwayNC-styled Modular Cards with Accent Edge) -----*****/
 element {
     enabled:                    true;
     spacing:                    12px;
-    padding:                    10px 14px;
-    border-radius:              12px;
-    background-color:           transparent;
+    padding:                    9px 12px;
+    border-radius:              0px;
+    border:                     1px 1px 1px 3px;
+    border-color:               @border-subtle;
+    background-color:           @background-card;
     text-color:                 @foreground;
     cursor:                     pointer;
 }
 
 element normal.normal, element alternate.normal {
-    background-color:           transparent;
+    background-color:           @background-card;
     text-color:                 @foreground;
+    border:                     1px 1px 1px 3px;
+    border-color:               @border-subtle;
 }
 
 element selected.normal {
     background-color:           @selected;
     text-color:                 @selected-text;
+    border:                     1px 1px 1px 4px;
+    border-color:               @border-highlight;
 }
 
 element-icon {
@@ -120,5 +126,6 @@ element-text {
     highlight:                  inherit;
     cursor:                     inherit;
     vertical-align:             0.5;
-    font:                       "JetBrainsMono Nerd Font Bold 11";
+    horizontal-align:           0.0;
+    font:                       "JetBrainsMono Nerd Font Bold 10.5";
 }
