@@ -21,11 +21,11 @@
 @define-color accent-glow         #7DD3FC;
 @define-color danger              #F87171;
 
-/* Reset & Global Typography (Bold & clear, sharp square) */
+/* Reset & Global Typography (Bold & clear, sharp square, compact 12px) */
 * {
   font-family:
     "JetBrainsMono Nerd Font", "JetBrainsMono NF", "JetBrains Mono", monospace;
-  font-size: 13.5px;
+  font-size: 12px;
   font-weight: 600;
   color: @text-primary;
   box-shadow: none;
@@ -43,7 +43,7 @@
   background: @glass-base;
   border: 1px solid @border-glass;
   border-radius: 0px;
-  padding: 16px;
+  padding: 14px;
   margin: 10px;
   min-height: 680px;
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.04);
@@ -67,8 +67,8 @@
   background: @glass-card;
   border: 1px solid @border-subtle;
   border-radius: 0px;
-  margin-bottom: 10px;
-  padding: 12px 14px;
+  margin-bottom: 8px;
+  padding: 10px 12px;
 }
 
 /* ==========================================================================
@@ -78,13 +78,13 @@
   background: transparent;
   border: none;
   padding: 2px 4px;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .widget-title > label {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.6px;
   color: @text-highlight;
 }
 
@@ -92,8 +92,8 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid @border-subtle;
   border-radius: 0px;
-  padding: 5px 12px;
-  font-size: 12px;
+  padding: 4px 10px;
+  font-size: 11px;
   font-weight: 700;
   color: @text-secondary;
 }
@@ -108,17 +108,17 @@
    Widget: Slider (Brightness - Sharp Track & Gentle Glacier Accent)
    ========================================================================== */
 .widget-backlight label {
-  font-size: 14px;
+  font-size: 12.5px;
   font-weight: 700;
   color: @accent-glow;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 scale trough {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid @border-subtle;
   border-radius: 0px;
-  min-height: 8px;
+  min-height: 7px;
 }
 
 scale highlight {
@@ -137,11 +137,11 @@ scale slider {
    Widget: DND (Do Not Disturb Switch - Sharp Square Block)
    ========================================================================== */
 .widget-dnd {
-  padding: 10px 14px;
+  padding: 9px 12px;
 }
 
 .widget-dnd > label {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   color: @text-primary;
 }
@@ -150,15 +150,15 @@ scale slider {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid @border-subtle;
   border-radius: 0px;
-  min-height: 22px;
-  min-width: 44px;
+  min-height: 20px;
+  min-width: 40px;
 }
 
 .widget-dnd > switch slider {
   background: @text-secondary;
   border-radius: 0px;
-  min-width: 18px;
-  min-height: 18px;
+  min-width: 16px;
+  min-height: 16px;
   margin: 2px;
 }
 
@@ -169,25 +169,25 @@ scale slider {
 
 .widget-dnd > switch:checked slider {
   background: #101117;
-  margin-left: 22px;
+  margin-left: 20px;
 }
 
 /* ==========================================================================
    Widget: Quick Toggle Buttons Grid (Sharp Square Cards)
    ========================================================================== */
 .widget-buttons-grid {
-  padding: 8px;
+  padding: 6px;
 }
 
 .widget-buttons-grid flowboxchild button {
   background: @glass-card;
   border: 1px solid @border-subtle;
   border-radius: 0px;
-  padding: 10px 8px;
-  margin: 3px;
+  padding: 8px 6px;
+  margin: 2px;
   color: @text-primary;
-  font-weight: 600;
-  font-size: 12.5px;
+  font-weight: 1000;
+  font-size: 10px;
 }
 
 .widget-buttons-grid flowboxchild button:hover {
@@ -200,7 +200,7 @@ scale slider {
   background: @glass-card-active;
   color: @text-highlight;
   border-color: @border-highlight;
-  font-weight: 700;
+  font-weight: 1100;
 }
 
 /* ==========================================================================
@@ -215,9 +215,9 @@ scale slider {
   border: 1px solid @border-glass;
   border-left: 3px solid @accent-glow;
   border-radius: 0px;
-  margin-top: 8px;
+  margin-top: 6px;
   padding: 4px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.60), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.60), 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
 .notification-critical {
@@ -226,25 +226,25 @@ scale slider {
 }
 
 .notification-content {
-  padding: 10px 12px;
+  padding: 8px 10px;
 }
 
 .notification-content .summary {
-  font-size: 13.5px;
+  font-size: 12.5px;
   font-weight: 700;
   color: @text-highlight;
 }
 
 .notification-content .body {
-  font-size: 12.5px;
+  font-size: 11.5px;
   font-weight: 600;
   color: @text-secondary;
-  margin-top: 4px;
-  line-height: 1.4;
+  margin-top: 3px;
+  line-height: 1.35;
 }
 
 .notification-content .time {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   color: @text-dim;
 }
@@ -254,10 +254,10 @@ scale slider {
   border: 1px solid @border-subtle;
   border-radius: 0px;
   color: @text-secondary;
-  margin: 6px;
+  margin: 4px;
   padding: 2px;
-  min-width: 20px;
-  min-height: 20px;
+  min-width: 18px;
+  min-height: 18px;
 }
 
 .close-button:hover {
