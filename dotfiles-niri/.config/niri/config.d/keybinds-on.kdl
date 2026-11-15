@@ -16,8 +16,8 @@ binds {
     // ------------------------------------------------------------------------
     Mod+Return       hotkey-overlay-title="Open Terminal (Foot)"              { spawn "footclient"; }
     Mod+E            hotkey-overlay-title="Open File Manager (Nautilus)"      { spawn "nautilus"; }
-    Mod+A            hotkey-overlay-title="Open Application Launcher (Rofi)"  { spawn-sh "rofi -show drun -theme $HOME/.config/rofi/config.rasi"; }
-    Mod+Shift+A      hotkey-overlay-title="Open GPU App Launcher (NVIDIA)"    { spawn-sh "$HOME/.config/niri/scripts/rofi_nvidia.sh"; }
+    Mod+A            hotkey-overlay-title="Open Application Launcher (Rofi)"  { spawn-sh "$HOME/.config/rofi/scripts/app-launcher/app-launcher.sh"; }
+    Mod+Shift+A      hotkey-overlay-title="Open GPU App Launcher (NVIDIA)"    { spawn-sh "$HOME/.config/rofi/scripts/nvidia-launcher/nvidia-launcher.sh"; }
 
     Mod+V            hotkey-overlay-title="Clipboard Manager (Rofi)"          { spawn-sh "$HOME/.config/rofi/scripts/clipboard-manager/clipboard-manager.sh"; }
     Mod+N            hotkey-overlay-title="Toggle Notification Center"        { spawn "swaync-client" "-t" "-sw"; }
