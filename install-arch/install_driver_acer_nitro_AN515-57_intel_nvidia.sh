@@ -10,33 +10,21 @@ echo -e "${BLUE}====================================================${NC}"
 echo -e "${GREEN}            Arch Hybrid Driver Toolkit              ${NC}"
 echo -e "${BLUE}====================================================${NC}\n"
 
-# Automatically detect and match kernel headers with the currently running kernel
-CURRENT_KERNEL=$(uname -r)
-if [[ "$CURRENT_KERNEL" == *"-zen"* ]]; then
-    KERNEL_HEADERS="linux-zen-headers"
-elif [[ "$CURRENT_KERNEL" == *"-lts"* ]]; then
-    KERNEL_HEADERS="linux-lts-headers"
-else
-    KERNEL_HEADERS="linux-headers"
-fi
-
 # ------------------------------------------------------------------------------
 # DRIVER & SYSTEM PACKAGES (INTEL + NVIDIA GTX 1650)
 # ------------------------------------------------------------------------------
 ESSENTIAL_TOOLS=(
     # --- Kernel Headers & Microcode ---
-    "$KERNEL_HEADERS"         # REQUIRED to build nvidia-dkms, acpi_call-dkms, v4l2loopback-dkms
-    "intel-ucode"             # Intel CPU microcode updates for improved stability and security
+    "intel-ucode" # Intel CPU microcode updates for improved stability and security
 
     # --- NVIDIA GTX 1650 & Hybrid Offload ---
-    "nvidia-dkms"             # NVIDIA proprietary DKMS driver
-    "nvidia-utils"            # NVIDIA utilities for OpenGL and Vulkan support
-    "lib32-nvidia-utils"      # 32-bit NVIDIA utilities for gaming/Steam/Wine compatibility
-    "nvidia-settings"         # NVIDIA configuration tool
-    "nvidia-prime"            # Provides prime-run command for on-demand discrete GPU offload
-    "egl-wayland"             # Mandatory Wayland EGL bridge for Niri + NVIDIA
-    "libva-nvidia-driver"     # NVIDIA VA-API hardware video acceleration
-    "opencl-nvidia"           # OpenCL support for GPU compute workloads
+    "nvidia-dkms"         # NVIDIA proprietary DKMS driver
+    "nvidia-utils"        # NVIDIA utilities for OpenGL and Vulkan support
+    "lib32-nvidia-utils"  # 32-bit NVIDIA utilities for gaming/Steam/Wine compatibility
+    "nvidia-settings"     # NVIDIA configuration tool
+    "nvidia-prime"        # Provides prime-run command for on-demand discrete GPU offload
+    "libva-nvidia-driver" # NVIDIA VA-API hardware video acceleration
+    "opencl-nvidia"       # OpenCL support for GPU compute workloads
 
     # --- Intel iGPU & Graphics APIs ---
     "mesa"                    # Open-source graphics drivers for Intel integrated graphics
@@ -51,44 +39,44 @@ ESSENTIAL_TOOLS=(
     "vdpauinfo"               # Tool for querying VDPAU capabilities
 
     # --- Audio (PipeWire & Firmware) ---
-    "sof-firmware"            # Sound Open Firmware required for modern Intel laptops
-    "alsa-ucm-conf"           # ALSA Use Case Manager configuration for proper audio routing
-    "alsa-utils"              # ALSA utilities for managing audio devices (alsamixer)
-    "alsa-firmware"           # Additional firmware for audio hardware support
-    "pipewire"                # Modern low-latency audio/video server
-    "pipewire-jack"           # PipeWire JACK compatibility layer
-    "pipewire-pulse"          # PipeWire PulseAudio replacement
-    "pipewire-alsa"           # PipeWire ALSA compatibility layer
-    "wireplumber"             # Modular session and policy manager for PipeWire
+    "sof-firmware"   # Sound Open Firmware required for modern Intel laptops
+    "alsa-ucm-conf"  # ALSA Use Case Manager configuration for proper audio routing
+    "alsa-utils"     # ALSA utilities for managing audio devices (alsamixer)
+    "alsa-firmware"  # Additional firmware for audio hardware support
+    "pipewire"       # Modern low-latency audio/video server
+    "pipewire-jack"  # PipeWire JACK compatibility layer
+    "pipewire-pulse" # PipeWire PulseAudio replacement
+    "pipewire-alsa"  # PipeWire ALSA compatibility layer
+    "wireplumber"    # Modular session and policy manager for PipeWire
 
     # --- Network, Bluetooth & Bus ---
-    "networkmanager"          # Network connection manager (Wi-Fi / Ethernet)
-    "bluez"                   # Official Linux Bluetooth protocol stack
-    "bluez-utils"             # Bluetooth CLI utilities (bluetoothctl)
-    "dbus-broker"             # High-performance D-Bus message broker
-    "dbus-broker-units"       # Systemd service units for dbus-broker
+    "networkmanager"    # Network connection manager (Wi-Fi / Ethernet)
+    "bluez"             # Official Linux Bluetooth protocol stack
+    "bluez-utils"       # Bluetooth CLI utilities (bluetoothctl)
+    "dbus-broker"       # High-performance D-Bus message broker
+    "dbus-broker-units" # Systemd service units for dbus-broker
 
     # --- Input, Power & Thermal ---
-    "libinput"                # Input device handling library for Wayland
-    "xf86-input-libinput"     # XWayland input driver wrapper
-    "thermald"                # Intel Thermal Daemon for dynamic CPU temperature control
-    "lm_sensors"              # Hardware monitoring tools for temperature and fan speed
-    "upower"                  # Battery and power source status monitoring daemon
-    "acpid"                   # ACPI event daemon (lid switch, power button events)
-    "acpi_call-dkms"          # DKMS module for ACPI calls (e.g., battery charge thresholds)
-    "power-profiles-daemon"   # Power profile switcher (performance, balanced, power-saver)
-    "irqbalance"              # Distributes hardware interrupts across CPU cores
+    "libinput"              # Input device handling library for Wayland
+    "xf86-input-libinput"   # XWayland input driver wrapper
+    "thermald"              # Intel Thermal Daemon for dynamic CPU temperature control
+    "lm_sensors"            # Hardware monitoring tools for temperature and fan speed
+    "upower"                # Battery and power source status monitoring daemon
+    "acpid"                 # ACPI event daemon (lid switch, power button events)
+    "acpi_call-dkms"        # DKMS module for ACPI calls (e.g., battery charge thresholds)
+    "power-profiles-daemon" # Power profile switcher (performance, balanced, power-saver)
+    "irqbalance"            # Distributes hardware interrupts across CPU cores
 
     # --- Storage, Filesystems & Utilities ---
-    "nvme-cli"                # NVMe SSD management and health CLI tools
-    "exfatprogs"              # Userspace utilities for exFAT filesystems (replaces exfat-utils)
-    "ntfs-3g"                 # NTFS read/write filesystem driver
-    "dosfstools"              # FAT32 filesystem utilities (USB drives, EFI partitions)
-    "v4l2loopback-dkms"       # DKMS module for virtual webcam devices (OBS/Zoom)
-    "usbutils"                # USB device inspection utilities (lsusb)
-    "pciutils"                # PCI device inspection utilities (lspci)
-    "xdg-user-dirs"           # Standard user directory generator (Downloads, Documents, etc.)
-    "ufw"                     # Uncomplicated Firewall for system security
+    "nvme-cli"          # NVMe SSD management and health CLI tools
+    "exfatprogs"        # Userspace utilities for exFAT filesystems (replaces exfat-utils)
+    "ntfs-3g"           # NTFS read/write filesystem driver
+    "dosfstools"        # FAT32 filesystem utilities (USB drives, EFI partitions)
+    "v4l2loopback-dkms" # DKMS module for virtual webcam devices (OBS/Zoom)
+    "usbutils"          # USB device inspection utilities (lsusb)
+    "pciutils"          # PCI device inspection utilities (lspci)
+    "xdg-user-dirs"     # Standard user directory generator (Downloads, Documents, etc.)
+    "ufw"               # Uncomplicated Firewall for system security
 )
 
 # ------------------------------------------------------------------------------

@@ -26,7 +26,6 @@ NIRI_PACKAGES=(
     "xorg-xwayland"             # Core XWayland library
     "xdg-desktop-portal"        # Core portal communication
     "xdg-desktop-portal-gnome"  # Crucial for screen sharing on Niri
-    "xdg-desktop-portal-gtk"    # Required for file picker dialogs & dark mode theme propagation
     "qt5-wayland" "qt6-wayland" # Native Wayland support for Qt apps
 
     # --- File Manager ---

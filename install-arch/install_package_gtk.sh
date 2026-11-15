@@ -27,23 +27,22 @@ ESSENTIAL_TOOLS=(
     "neovim"         # Your primary coding environment
     "pacman-contrib" # System clean-up tools (paccache)
     "xclip"          # Clipboard management in terminal
-
-    # "mpv"       # Look video & audio in terminal
+    # "mpv"          # Look video & audio in terminal
 
     # 2. File & Disk Management (GNOME/GTK Stack)
     "gnome-disk-utility" # Disk partitioning & S.M.A.R.T monitoring
 
     # 3. Media & Productivity (Pure GTK & High Performance)
-    "gnome-text-editor" # Modern "Notepad" (Libadwaita)
-    "gnome-calculator"  # Feature-rich calculator
-    "gnome-font-viewer" # Preview and install fonts
-    # "gnome-calendar"       # Event management
+    "gnome-text-editor"    # Modern "Notepad" (Libadwaita)
+    "gnome-calculator"     # Feature-rich calculator
+    "gnome-font-viewer"    # Preview and install fonts
     "gnome-clocks"         # Alarm, Timer, Stopwatch
     "loupe"                # Modern, fast image viewer
     "decibels"             # Minimalist music player (Replaces Elisa)
     "gnome-sound-recorder" # GNOME audio recorder (Replaces KRecorder)
     "showtime"             # Best video player
     "snapshot"             # Camera
+    # "gnome-calendar"     # Event management
 
     # 4. Desktop UI & Theme Engine
     "nwg-look"                  # Core GTK Theme/Icon/Cursor manager
