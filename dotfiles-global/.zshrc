@@ -129,6 +129,9 @@ export PAGER='less'
 export PATH="$HOME/.local/bin:$PATH"
 
 # Pyenv Integration
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
 
 # ------------------------------------------------------------
 # 8. PRODUCTIVITY ALIASES & TMUX SHORTCUTS
@@ -171,11 +174,12 @@ eval "$(starship init zsh)"
 # ------------------------------------------------------------
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#6c7086'
 
-if [[ -f ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
-    source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ -f ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+    source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 # Syntax highlighting MUST remain at the very bottom
-if [[ -f ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-    source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ -f ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+    source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
