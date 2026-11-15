@@ -21,7 +21,7 @@ overview {
 // https://niri-wm.github.io/niri/Configuration%3A-Layout.html
 
 layout {
-    gaps 10
+    gaps 8
     center-focused-column "never"
     empty-workspace-above-first
     background-color "transparent"
