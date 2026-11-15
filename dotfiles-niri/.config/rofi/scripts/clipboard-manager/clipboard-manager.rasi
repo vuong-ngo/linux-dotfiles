@@ -1,25 +1,27 @@
-/*****----- Configuration for Clipboard Manager (Graphite Dark Glass) -----*****/
+/*****----- Configuration for Clipboard Manager (Bottom-Left Corner Floating, SwayNC Style & 10.5 Type) -----*****/
 configuration {
     show-icons:                 false;
+    font:                       "JetBrainsMono Nerd Font Bold 10.5";
 }
 
 /*****----- Global Properties -----*****/
 @import                         "~/.config/rofi/global.rasi"
 
-/*****----- Main Window (Floating Bottom-Left) -----*****/
+/*****----- Main Window (Floating Bottom-Left Corner with Offset) -----*****/
 window {
     transparency:                "real";
     location:                    south west;
     anchor:                      south west;
-    width:                       540px;
+    fullscreen:                  false;
+    width:                       580px;
     x-offset:                    24px;
-    y-offset:                    -24px;
+    y-offset:                    24px;
 
     enabled:                     true;
     margin:                      0px;
-    padding:                     14px;
-    border:                      1.5px solid;
-    border-radius:               18px;
+    padding:                     16px;
+    border:                      1px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            @background;
     cursor:                      "default";
@@ -35,14 +37,14 @@ mainbox {
     children:                    [ "inputbar", "message", "listview" ];
 }
 
-/*****----- Inputbar -----*****/
+/*****----- Inputbar (SwayNC Modular Framed Container) -----*****/
 inputbar {
     enabled:                     true;
     spacing:                     10px;
     margin:                      0px;
     padding:                     10px 14px;
-    border-radius:               12px;
-    border:                      1px solid;
+    border-radius:               0px;
+    border:                      1px;
     border-color:                @border-subtle;
     background-color:            @background-alt;
     text-color:                  @foreground;
@@ -65,30 +67,30 @@ entry {
     placeholder:                 "Search clipboard history...";
     placeholder-color:           @foreground-muted;
     vertical-align:              0.5;
-    font:                        "JetBrainsMono Nerd Font 10.5";
+    font:                        "JetBrainsMono Nerd Font Bold 10.5";
 }
 
 /*****----- Message Header (Shortcuts Info) -----*****/
 message {
     enabled:                     true;
     margin:                      0px;
-    padding:                     6px 10px;
-    border-radius:               10px;
-    border:                      1px solid;
+    padding:                     7px 12px;
+    border-radius:               0px;
+    border:                      1px;
     border-color:                @border-subtle;
     background-color:            @background-alt;
     text-color:                  @foreground-muted;
 }
 
 textbox {
-    font:                        "JetBrainsMono Nerd Font 9.5";
+    font:                        "JetBrainsMono Nerd Font Bold 9.5";
     background-color:            transparent;
     text-color:                  @foreground-muted;
     vertical-align:              0.5;
     horizontal-align:            0.5;
 }
 
-/*****----- Listview -----*****/
+/*****----- Listview (Elevated Card Layout) -----*****/
 listview {
     enabled:                     true;
     columns:                     1;
@@ -101,59 +103,63 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
 
-    spacing:                     6px;
-    margin:                      0px;
+    spacing:                     7px;
+    margin:                      2px 0px 0px 0px;
     padding:                     0px;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      "default";
 }
 
-/*****----- Elements -----*****/
+/*****----- Elements (SwayNC-styled Modular Cards with Accent Edge) -----*****/
 element {
     enabled:                     true;
-    spacing:                     8px;
+    spacing:                     10px;
     margin:                      0px;
-    padding:                     8px 12px;
-    border-radius:               10px;
-    border:                      1px solid;
-    border-color:                transparent;
-    background-color:            @background-alt;
+    padding:                     9px 13px;
+    border-radius:               0px;
+    border:                      1px 1px 1px 3px;
+    border-color:                @border-subtle;
+    background-color:            @background-card;
     text-color:                  @foreground;
     cursor:                      pointer;
 }
 
 element normal.normal, element alternate.normal {
-    background-color:            @background-alt;
+    background-color:            @background-card;
     text-color:                  @foreground;
-    border-color:                transparent;
+    border:                      1px 1px 1px 3px;
+    border-color:                @border-subtle;
 }
 
 element selected.normal {
     background-color:            @selected;
     text-color:                  @selected-text;
-    border-color:                @selected;
+    border:                      1px 1px 1px 4px;
+    border-color:                @border-highlight;
 }
 
-/* Distinct Red Warning Style for Clear All Button */
+/* Distinct Red Warning Style for Clear All Button (Matches SwayNC Critical Notification) */
 element normal.urgent, element alternate.urgent {
-    background-color:            rgba(251, 113, 133, 0.12);
+    background-color:            rgba(248, 113, 113, 0.12);
     text-color:                  @urgent;
-    border-color:                rgba(251, 113, 133, 0.25);
+    border:                      1px 1px 1px 3px;
+    border-color:                @urgent;
 }
 
 element selected.urgent {
-    background-color:            @urgent;
-    text-color:                  #121214;
+    background-color:            rgba(248, 113, 113, 0.28);
+    text-color:                  #FFFFFF;
+    border:                      1px 1px 1px 4px;
     border-color:                @urgent;
 }
 
 element-text {
     background-color:            transparent;
     text-color:                  inherit;
-    highlight:                   inherit;
+    highlight:                  inherit;
     cursor:                      inherit;
     vertical-align:              0.5;
     horizontal-align:            0.0;
-    font:                        "JetBrainsMono Nerd Font 10.5";
+    font:                       "JetBrainsMono Nerd Font Bold 10.5";
 }
