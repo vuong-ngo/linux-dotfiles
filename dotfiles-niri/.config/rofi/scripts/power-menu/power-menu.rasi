@@ -1,26 +1,27 @@
-/*****----- Configuration for Minimalist Power Menu (Graphite Dark Glass) -----*****/
+/*****----- Configuration for Minimalist Power Menu (SwayNC Architectural Style & Compact 10.5 Type) -----*****/
 configuration {
     show-icons:                 false;
+    font:                       "JetBrainsMono Nerd Font Bold 10.5";
 }
 
 /*****----- Global Properties -----*****/
 @import                          "~/.config/rofi/global.rasi"
 
-/*****----- Main Window (Floating Top Bar) -----*****/
+/*****----- Main Window (Floating Top Bar, Pure 0px Sharp Geometry) -----*****/
 window {
     transparency:       "real";
     location:           north;
     anchor:             north;
     fullscreen:         false;
-    width:              560px;
+    width:              540px;
     x-offset:           0px;
     y-offset:           24px;
 
-    border:             1.5px solid;
-    border-radius:      20px;
+    border:             1px;
+    border-radius:      0px;
     border-color:       @border-colour;
     background-color:   @background;
-    padding:            12px;
+    padding:            14px;
     cursor:             "default";
 }
 
@@ -44,38 +45,40 @@ listview {
     scrollbar:          false;
     layout:             vertical;
 
-    spacing:            10px;
+    spacing:            8px;
     background-color:   transparent;
     text-color:         @foreground;
     cursor:             "default";
 }
 
-/*****----- Elements (Icon Tiles) -----*****/
+/*****----- Elements (SwayNC-styled Modular Icon Tiles) -----*****/
 element {
     enabled:            true;
-    padding:            16px 0px;
-    border-radius:      14px;
-    border:             1px solid;
+    padding:            14px 0px;
+    border-radius:      0px;
+    border:             1px 1px 1px 3px;
     border-color:       @border-subtle;
-    background-color:   @background-alt;
+    background-color:   @background-card;
     text-color:         @foreground;
     cursor:             pointer;
 }
 
 element normal.normal, element alternate.normal {
-    background-color:   @background-alt;
+    background-color:   @background-card;
     text-color:         @foreground;
+    border:             1px 1px 1px 3px;
     border-color:       @border-subtle;
 }
 
 element selected.normal {
     background-color:   @selected;
     text-color:         @selected-text;
-    border-color:       @selected;
+    border:             1px 1px 1px 4px;
+    border-color:       @border-highlight;
 }
 
 element-text {
-    font:               "JetBrainsMono Nerd Font Bold 24";
+    font:               "JetBrainsMono Nerd Font Bold 22";
     background-color:   transparent;
     text-color:         inherit;
     cursor:             inherit;

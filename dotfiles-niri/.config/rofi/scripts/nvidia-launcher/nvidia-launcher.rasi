@@ -62,7 +62,7 @@ entry {
     background-color:           transparent;
     text-color:                 inherit;
     cursor:                     text;
-    placeholder:                " Launch app on discrete NVIDIA GPU";
+    placeholder:                " Launch app on discrete NVIDIA GPU...";
     placeholder-color:          @foreground-muted;
     vertical-align:             0.5;
     font:                       "JetBrainsMono Nerd Font Bold 10.5";

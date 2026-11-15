@@ -1,28 +1,29 @@
-/*****----- Configuration for Wallpaper Picker (Graphite Dark Glass) -----*****/
+/*****----- Configuration for Wallpaper Picker (Inputbar on Top, Gallery Below, SwayNC Style) -----*****/
 configuration {
     show-icons:                 true;
+    font:                       "JetBrainsMono Nerd Font Bold 10.5";
 }
 
 /*****----- Global Properties -----*****/
 @import                         "~/.config/rofi/global.rasi"
 
-/*****----- Main Window (Bottom Center Compact Gallery) -----*****/
+/*****----- Main Window (Floating Bottom Gallery, Pure 0px Sharp Geometry) -----*****/
 window {
     transparency:                "real";
     location:                    south;
     anchor:                      south;
     fullscreen:                  false;
-    width:                       1480px;
-    height:                      320px;
+    width:                       1440px;
+    height:                      310px;
     x-offset:                    0px;
-    y-offset:                    -24px;
+    y-offset:                    24px;
 
     enabled:                     true;
-    border:                      1.5px solid;
-    border-radius:               22px;
+    border:                      1px;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            @background;
-    padding:                     16px;
+    padding:                     14px;
     cursor:                      "default";
 }
 
@@ -33,10 +34,44 @@ mainbox {
     margin:                      0px;
     padding:                     0px;
     background-color:            transparent;
-    children:                    [ "listview", "inputbar" ];
+    children:                    [ "inputbar", "listview" ];
 }
 
-/*****----- Listview (Horizontal Gallery Row) -----*****/
+/*****----- Inputbar (On Top: SwayNC Modular Framed Container) -----*****/
+inputbar {
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     8px 14px;
+    border:                      1px;
+    border-radius:               0px;
+    border-color:                @border-subtle;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    children:                    [ "textbox-prompt-colon", "entry" ];
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                     false;
+    str:                        "󰸉 ";
+    background-color:            transparent;
+    text-color:                  @accent;
+    vertical-align:              0.5;
+    font:                        "JetBrainsMono Nerd Font Bold 12";
+}
+
+entry {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 "Filter wallpapers...";
+    placeholder-color:           @foreground-muted;
+    vertical-align:              0.5;
+    font:                        "JetBrainsMono Nerd Font Bold 10.5";
+}
+
+/*****----- Listview (Below: Horizontal Gallery Row) -----*****/
 listview {
     enabled:                     true;
     expand:                      false;
@@ -44,7 +79,7 @@ listview {
     lines:                       1;
     cycle:                       true;
     dynamic:                     true;
-    scrollbar:                   false;
+    scrollbar:                  false;
     layout:                      vertical;
     reverse:                     false;
     fixed-height:                true;
@@ -58,40 +93,42 @@ listview {
     cursor:                      "default";
 }
 
-/*****----- Elements (Wallpaper Cards) -----*****/
+/*****----- Elements (SwayNC-styled Modular Wallpaper Cards) -----*****/
 element {
     enabled:                     true;
     orientation:                 vertical;
     spacing:                     6px;
     margin:                      0px;
     padding:                     8px;
-    border-radius:               14px;
-    border:                      1px solid;
+    border-radius:               0px;
+    border:                      1px 1px 1px 3px;
     border-color:                @border-subtle;
-    background-color:            @background-alt;
+    background-color:            @background-card;
     text-color:                  @foreground;
     cursor:                      pointer;
 }
 
 element normal.normal, element alternate.normal {
-    background-color:            @background-alt;
+    background-color:            @background-card;
     text-color:                  @foreground;
+    border:                      1px 1px 1px 3px;
     border-color:                @border-subtle;
 }
 
 element selected.normal {
     background-color:            @selected;
     text-color:                  @selected-text;
-    border-color:                @selected;
+    border:                      1px 1px 1px 4px;
+    border-color:                @border-highlight;
 }
 
 element-icon {
     background-color:            transparent;
-    size:                        175px;
+    size:                        170px;
     cursor:                      inherit;
     horizontal-align:            0.5;
     vertical-align:              0.5;
-    border-radius:               10px;
+    border-radius:               0px;
 }
 
 element-text {
@@ -99,40 +136,4 @@ element-text {
     text-color:                  inherit;
     font:                        "JetBrainsMono Nerd Font Bold 10.5";
     horizontal-align:            0.5;
-    vertical-align:              0.5;
-}
-
-/*****----- Inputbar (Bottom Filter Bar) -----*****/
-inputbar {
-    enabled:                     true;
-    margin:                      0px;
-    padding:                     10px 16px;
-    background-color:            @background-alt;
-    text-color:                  @foreground;
-    border:                      1px solid;
-    border-color:                @border-subtle;
-    border-radius:               14px;
-    spacing:                     10px;
-    children:                    [ "textbox-prompt-colon", "entry" ];
-}
-
-textbox-prompt-colon {
-    enabled:                     true;
-    expand:                      false;
-    str:                         "󰍉 ";
-    font:                        "JetBrainsMono Nerd Font Bold 13";
-    background-color:            transparent;
-    text-color:                  @accent;
-    vertical-align:              0.5;
-}
-
-entry {
-    enabled:                     true;
-    background-color:            transparent;
-    text-color:                  inherit;
-    cursor:                      text;
-    placeholder:                 "Search wallpaper gallery...";
-    placeholder-color:           @foreground-muted;
-    vertical-align:              0.5;
-    font:                        "JetBrainsMono Nerd Font 10.5";
 }

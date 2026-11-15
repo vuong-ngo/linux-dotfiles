@@ -72,7 +72,7 @@ entry {
     background-color:           transparent;
     text-color:                 inherit;
     cursor:                     text;
-    placeholder:                " Search applications";
+    placeholder:                " Search applications...";
     placeholder-color:          @foreground-muted;
     vertical-align:             0.5;
     font:                       "JetBrainsMono Nerd Font Bold 10.5";

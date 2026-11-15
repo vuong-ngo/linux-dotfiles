@@ -1,27 +1,27 @@
-/*****----- Control Center Dedicated Rofi Theme -----*****/
+/*****----- Control Center Dedicated Rofi Theme (SwayNC Architectural Style & Compact 10.5 Type) -----*****/
 configuration {
     show-icons:                 false;
-    font:                       "JetBrainsMono Nerd Font Bold 11";
+    font:                       "JetBrainsMono Nerd Font Bold 10.5";
 }
 
 /*****----- Imports -----*****/
 @import                         "~/.config/rofi/global.rasi"
 
-/*****----- Main Window -----*****/
+/*****----- Main Window (Pure 0px Sharp Geometry) -----*****/
 window {
     transparency:               "real";
     location:                   center;
     anchor:                     center;
     fullscreen:                 false;
-    width:                      650px;
+    width:                      640px;
     x-offset:                   0px;
     y-offset:                   0px;
 
     enabled:                    true;
     margin:                     0px;
     padding:                    0px;
-    border:                     1.5px solid;
-    border-radius:              20px;
+    border:                     1px;
+    border-radius:              0px;
     border-color:               @border-colour;
     background-color:           @background;
     cursor:                     "default";
@@ -37,15 +37,15 @@ mainbox {
     children:                   [ "inputbar", "listview" ];
 }
 
-/*****----- Inputbar -----*****/
+/*****----- Inputbar (SwayNC Modular Framed Container) -----*****/
 inputbar {
     enabled:                    true;
     spacing:                    10px;
     margin:                     0px;
     padding:                    10px 16px;
-    border:                     1px solid;
-    border-radius:              12px;
-    border-color:               rgba(255, 255, 255, 0.08);
+    border:                     1px;
+    border-radius:              0px;
+    border-color:               @border-subtle;
     background-color:           @background-alt;
     text-color:                 @foreground;
     children:                   [ "textbox-prompt-colon", "prompt" ];
@@ -58,14 +58,14 @@ textbox-prompt-colon {
     background-color:           transparent;
     text-color:                 @accent;
     vertical-align:             0.5;
-    font:                       "JetBrainsMono Nerd Font Bold 13";
+    font:                       "JetBrainsMono Nerd Font Bold 12";
 }
 
 prompt {
     enabled:                    true;
     background-color:           transparent;
     text-color:                 @foreground;
-    font:                       "JetBrainsMono Nerd Font Bold 11";
+    font:                       "JetBrainsMono Nerd Font Bold 10.5";
 }
 
 /*****----- Listview -----*****/
@@ -89,26 +89,32 @@ listview {
     cursor:                     "default";
 }
 
-/*****----- Elements -----*****/
+/*****----- Elements (SwayNC-styled Modular Cards with Accent Edge) -----*****/
 element {
     enabled:                    true;
     spacing:                    10px;
     margin:                     0px;
-    padding:                    10px 14px;
-    border-radius:              10px;
-    background-color:           transparent;
+    padding:                    9px 14px;
+    border-radius:              0px;
+    border:                     1px 1px 1px 3px;
+    border-color:               @border-subtle;
+    background-color:           @background-card;
     text-color:                 @foreground;
     cursor:                     pointer;
 }
 
 element normal.normal, element alternate.normal {
-    background-color:           transparent;
+    background-color:           @background-card;
     text-color:                 @foreground;
+    border:                     1px 1px 1px 3px;
+    border-color:               @border-subtle;
 }
 
 element selected.normal {
     background-color:           @selected;
     text-color:                 @selected-text;
+    border:                     1px 1px 1px 4px;
+    border-color:               @border-highlight;
 }
 
 element-text {
@@ -118,5 +124,5 @@ element-text {
     cursor:                     inherit;
     vertical-align:             0.5;
     horizontal-align:           0.0;
-    font:                       "JetBrainsMono Nerd Font 11";
+    font:                       "JetBrainsMono Nerd Font Bold 10.5";
 }
