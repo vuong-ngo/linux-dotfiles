@@ -1,7 +1,7 @@
-/*****----- Main Rofi Configuration (Soft & Gentle Frosted Glass) -----*****/
+/*****----- Main Rofi Configuration (SwayNC Architectural Style & Compact 10.5 Type) -----*****/
 configuration {
     modi:                       "drun,run,window";
-    font:                       "JetBrainsMono Nerd Font 10.5";
+    font:                       "JetBrainsMono Nerd Font Bold 10.5";
     show-icons:                 true;
     display-drun:               "󰀻  Apps";
     display-run:                "󰆍  Run";
@@ -14,7 +14,7 @@ configuration {
 @import                         "~/.config/rofi/colors.rasi"
 @import                         "~/.config/rofi/keybinds.rasi"
 
-/*****----- Main Window -----*****/
+/*****----- Main Window (Pure 0px Sharp Geometry) -----*****/
 window {
     transparency:               "real";
     location:                   center;
@@ -27,8 +27,8 @@ window {
     enabled:                    true;
     margin:                     0px;
     padding:                    0px;
-    border:                     1.5px solid;
-    border-radius:              18px;
+    border:                     1px;
+    border-radius:              0px;
     border-color:               @border-colour;
     background-color:           @background;
     cursor:                     "default";
@@ -37,21 +37,21 @@ window {
 /*****----- Main Box -----*****/
 mainbox {
     enabled:                    true;
-    spacing:                    14px;
+    spacing:                    12px;
     margin:                     0px;
-    padding:                    22px;
+    padding:                    20px;
     background-color:           transparent;
     children:                   [ "inputbar", "listview", "mode-switcher" ];
 }
 
-/*****----- Inputbar -----*****/
+/*****----- Inputbar (SwayNC Modular Framed Container) -----*****/
 inputbar {
     enabled:                    true;
     spacing:                    12px;
     margin:                     0px;
-    padding:                    11px 16px;
-    border:                     1px solid;
-    border-radius:              12px;
+    padding:                    10px 16px;
+    border:                     1px;
+    border-radius:              0px;
     border-color:               @border-subtle;
     background-color:           @background-alt;
     text-color:                 @foreground;
@@ -65,7 +65,7 @@ textbox-prompt-colon {
     background-color:           transparent;
     text-color:                 @accent;
     vertical-align:             0.5;
-    font:                       "JetBrainsMono Nerd Font 12";
+    font:                       "JetBrainsMono Nerd Font Bold 12";
 }
 
 entry {
@@ -76,7 +76,7 @@ entry {
     placeholder:                "Search applications, commands, windows...";
     placeholder-color:          @foreground-muted;
     vertical-align:             0.5;
-    font:                       "JetBrainsMono Nerd Font 10.5";
+    font:                       "JetBrainsMono Nerd Font Bold 10.5";
 }
 
 /*****----- Listview -----*****/
@@ -92,7 +92,7 @@ listview {
     fixed-height:               true;
     fixed-columns:              true;
 
-    spacing:                    6px;
+    spacing:                    7px;
     margin:                     0px;
     padding:                    4px 0px;
     background-color:           transparent;
@@ -100,29 +100,31 @@ listview {
     cursor:                     "default";
 }
 
-/*****----- Elements -----*****/
+/*****----- Elements (SwayNC-styled Modular Cards with Accent Edge) -----*****/
 element {
     enabled:                    true;
     spacing:                    12px;
     margin:                     0px;
-    padding:                    8px 12px;
-    border-radius:              10px;
-    border:                     1px solid;
-    border-color:               transparent;
-    background-color:           transparent;
+    padding:                    9px 12px;
+    border-radius:              0px;
+    border:                     1px 1px 1px 3px;
+    border-color:               @border-subtle;
+    background-color:           @background-card;
     text-color:                 @foreground;
     cursor:                     pointer;
 }
 
 element normal.normal, element alternate.normal {
-    background-color:           transparent;
+    background-color:           @background-card;
     text-color:                 @foreground;
-    border-color:               transparent;
+    border:                     1px 1px 1px 3px;
+    border-color:               @border-subtle;
 }
 
 element selected.normal {
     background-color:           @selected;
     text-color:                 @selected-text;
+    border:                     1px 1px 1px 4px;
     border-color:               @border-highlight;
 }
 
@@ -141,7 +143,7 @@ element-text {
     cursor:                     inherit;
     vertical-align:             0.5;
     horizontal-align:           0.0;
-    font:                       "JetBrainsMono Nerd Font 10.5";
+    font:                       "JetBrainsMono Nerd Font Bold 10.5";
 }
 
 /*****----- Mode Switcher -----*****/
@@ -154,18 +156,19 @@ mode-switcher {
 }
 
 button {
-    padding:                    8px 14px;
-    border-radius:              10px;
-    border:                     1px solid;
+    padding:                    8px 16px;
+    border-radius:              0px;
+    border:                     1px;
     border-color:               @border-subtle;
     background-color:           @background-alt;
     text-color:                 @foreground-muted;
     cursor:                     pointer;
-    font:                       "JetBrainsMono Nerd Font 10";
+    font:                       "JetBrainsMono Nerd Font Bold 10";
 }
 
 button selected {
     background-color:           @selected;
     text-color:                 @selected-text;
+    border:                     1px 1px 1px 3px;
     border-color:               @border-highlight;
 }
