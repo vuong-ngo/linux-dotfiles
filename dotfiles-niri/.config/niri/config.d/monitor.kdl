@@ -11,32 +11,21 @@
 // https://niri-wm.github.io/niri/Configuration%3A-Outputs.html
 
 output "eDP-1" {
-    mode "1920x1080@60.000"
     scale 1.0
     transform "normal"
-    position x=0 y=0
-    variable-refresh-rate on-demand=true
 }
 
 output "HDMI-A-1" {
-    mode "1920x1080@60.000"
     scale 1.0
     transform "normal"
-    position x=0 y=0
-    variable-refresh-rate on-demand=true
 }
 
 output "DP-1" {
-    mode "1920x1080@60.000"
     scale 1.0
     transform "normal"
-    variable-refresh-rate on-demand=true
 }
 
 output "DP-2" {
-    mode "1920x1080@60.000"
     scale 1.0
     transform "normal"
-    variable-refresh-rate on-demand=true
 }
-
