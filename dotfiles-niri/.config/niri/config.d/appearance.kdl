@@ -154,11 +154,28 @@ window-rule {
 }
 
 window-rule {
-    match app-id="^jetbrains-.*"
-    match app-id=r#"steam"# title=r#".*(Friends|Settings|Properties).*"#
-
+    match app-id=r#"^(jetbrains-toolbox|com\.jetbrains\.toolbox)$"#
     open-floating true
-    default-column-width { proportion 0.6; }
+    default-column-width { fixed 440; }
+    default-window-height { fixed 620; }
+}
+
+window-rule {
+    match app-id=r#"^jetbrains-.*$"# title=r#"^(win0|splash|Welcome to .*)$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^jetbrains-.*$"#
+    exclude title=r#".* - .*"#
+    exclude title=r#".* – .*"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^jetbrains-.*$"# title=r#".*( - | – ).*"#
+    open-floating false
+    default-column-width { proportion 0.85; }
 }
 
 window-rule {
@@ -166,6 +183,13 @@ window-rule {
     match title=".exe$"
 
     variable-refresh-rate true
+}
+
+window-rule {
+    match app-id=r#"steam"# title=r#".*(Friends|Settings|Properties).*"#
+
+    open-floating true
+    default-column-width { proportion 0.6; }
 }
 
 // Indicate screencasted windows with subtle highlight
