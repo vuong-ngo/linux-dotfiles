@@ -24,7 +24,7 @@ input {
         drag false
         dwt
         accel-speed 0.25
-        accel-profile "flat"
+        accel-profile "adaptive"
 
         scroll-method "two-finger"
         scroll-factor 1.0
@@ -34,7 +34,6 @@ input {
     mouse {
         accel-speed 0.0
         accel-profile "flat"
-
         scroll-factor 1.0
     }
 
