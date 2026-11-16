@@ -32,22 +32,19 @@ environment {
     SDL_VIDEODRIVER "wayland,x11"
     CLUTTER_BACKEND "wayland"
 
-    // ============ NVIDIA SPECIFIC (GTX 1650) ============
-    // Essential for hardware acceleration on NVIDIA laptops
-    LIBVA_DRIVER_NAME "nvidia"
-    GBM_BACKEND "nvidia-drm"
-    __GLX_VENDOR_LIBRARY_NAME "nvidia"
+    // ============ HYBRID GRAPHICS (INTEL iGPU + NVIDIA GTX 1650) ============
+    // eDP-1 runs on Intel TigerLake iGPU; discrete NVIDIA runs on-demand via prime-run.
+    // DO NOT set GBM_BACKEND="nvidia-drm" or __GLX_VENDOR_LIBRARY_NAME="nvidia" globally!
+    // Forcing them breaks DMA-BUF buffer sharing with Intel compositor and causes severe browser flickering.
+    // Intel Media Driver for native, power-efficient 4K/8K hardware video decode
+    LIBVA_DRIVER_NAME "iHD"
 
     // ============ FCITX 5 ============
-    GTK_IM_MODULE "fcitx"
-    QT_IM_MODULE "fcitx"
     XMODIFIERS "@im=fcitx"
     SDL_IM_MODULE "fcitx"
     GLFW_IM_MODULE "fcitx"
-    DefaultIMModule "fcitx"
 
     // ============ JAVA & MISC ============
     _JAVA_AWT_WM_NONREPARENTING "1"
     _JAVA_OPTIONS "-Dsun.java2d.uiScale=1.0"
 }
-
