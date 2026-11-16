@@ -1,8 +1,8 @@
 // ================================================
-//   _   ____  ______  _  _______  _  ___________
+//   _   ____  ______  _  _______  _  ___________ 
 //  | | / / / / / __ \/ |/ / ___/ / |/ / ___/ __ \
 //  | |/ / /_/ / /_/ /    / (_ / /    / (_ / /_/ /
-//  |___/\____/\____/_/|_/\___/ /_/|_/\___/\____/
+//  |___/\____/\____/_/|_/\___/ /_/|_/\___/\____/ 
 // ================================================
 
 // =====================================
@@ -15,10 +15,8 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 spawn-at-startup "systemctl" "--user" "import-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 
-spawn-at-startup "/usr/lib/gnome-settings-daemon/gsd-xsettings"
-
 spawn-at-startup "swaync"
-spawn-at-startup "$HOME/.config/niri/scripts/keep_awake.sh 5"
+spawn-sh-at-startup "$HOME/.config/niri/scripts/keep_awake.sh init 5"
 spawn-sh-at-startup "swaybg -i $HOME/.cache/current_wallpaper -m fill"
 
 spawn-at-startup "fcitx5" "-d"
