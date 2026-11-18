@@ -110,20 +110,6 @@ fi
 # Note: Keep nvidia-persistenced disabled on hybrid laptops so GTX 1650 can enter D3cold sleep
 # sudo systemctl enable nvidia-persistenced
 
-# Configure NVIDIA Dynamic Power Management (RTD3) & VRAM preservation across suspend/resume
-echo -e "${YELLOW}Configuring NVIDIA dynamic power management (RTD3) & suspend rules...${NC}"
-sudo tee /etc/modprobe.d/nvidia-power-management.conf >/dev/null <<EOF
-options nvidia NVreg_DynamicPowerManagement=0x02
-options nvidia NVreg_PreserveVideoMemoryAllocations=1
-options nvidia NVreg_TemporaryFilePath=/var/tmp
-EOF
-
-# Udev rule for automatic runtime power management (switches GTX 1650 to D3cold sleep when idle)
-sudo tee /etc/udev/rules.d/80-nvidia-pm.rules >/dev/null <<EOF
-ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto"
-ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto"
-EOF
-
 sudo systemctl enable nvidia-suspend.service nvidia-hibernate.service nvidia-resume.service 2>/dev/null || true
 
 # ------------------------------------------------------------------------------
