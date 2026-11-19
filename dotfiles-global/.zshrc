@@ -136,12 +136,6 @@ eval "$(pyenv init - zsh)"
 # ------------------------------------------------------------
 # 8. PRODUCTIVITY ALIASES & TMUX SHORTCUTS
 # ------------------------------------------------------------
-# Navigation
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias mkdir='mkdir -p'
-
 # Colored file listing
 alias ls='ls --color=auto --group-directories-first'
 alias grep='grep --color=auto'
@@ -167,7 +161,9 @@ mkcd() {
 # ------------------------------------------------------------
 # 9. PROMPT INITIALIZATION (Starship)
 # ------------------------------------------------------------
+if (( $+commands[starship] )); then
 eval "$(starship init zsh)"
+fi
 
 # ------------------------------------------------------------
 # 10. PLUGINS (Autosuggestions & Syntax Highlighting)
