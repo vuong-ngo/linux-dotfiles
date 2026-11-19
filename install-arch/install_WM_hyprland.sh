@@ -38,8 +38,10 @@ HYPR_PACKAGES=(
     "foot"                    # GPU-accelerated terminal emulator
     "polkit-gnome"            # Provides graphical password prompts (Auth)
     "wl-clipboard" "cliphist" # System clipboard manager and history
+    "xclip"                   # Clipboard management in terminal
     "hyprshot"                # Efficient screenshot tool tailored for Hyprland
-    "brightnessctl"           # CLI for controlling display brightness
+    "brightnessctl"           # CLI for controlling display brightnes
+    "jq"                      # JSON processor (required for wl-mirror output parsing)
     "pavucontrol"             # GUI for PulseAudio/Pipewire volume management
     "blueman"                 # GUI for managing Bluetooth connections
     "libnotify"               # Core library for sending desktop notifications

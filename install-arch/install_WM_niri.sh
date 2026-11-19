@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # --- COLOR DEFINITIONS ---
 RED='\033[0;31m'
@@ -41,6 +42,7 @@ NIRI_PACKAGES=(
     "foot"                    # GPU-accelerated terminal emulator
     "polkit-gnome"            # Graphical password prompts for root access
     "wl-clipboard" "cliphist" # Clipboard manager & history
+    "xclip"                   # Clipboard management in terminal
     "brightnessctl"           # CLI for display brightness
     "jq"                      # JSON processor (required for wl-mirror output parsing)
     "libnotify"               # Desktop notifications library
