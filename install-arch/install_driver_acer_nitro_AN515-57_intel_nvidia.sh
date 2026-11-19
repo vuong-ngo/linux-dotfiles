@@ -107,11 +107,6 @@ if findmnt -n -o FSTYPE / | grep -q "btrfs"; then
     findmnt -n -o FSTYPE /home | grep -q "btrfs" && sudo systemctl enable btrfs-scrub@home.timer
 fi
 
-# Note: Keep nvidia-persistenced disabled on hybrid laptops so GTX 1650 can enter D3cold sleep
-# sudo systemctl enable nvidia-persistenced
-
-sudo systemctl enable nvidia-suspend.service nvidia-hibernate.service nvidia-resume.service 2>/dev/null || true
-
 # ------------------------------------------------------------------------------
 # COMPLETION
 # ------------------------------------------------------------------------------
