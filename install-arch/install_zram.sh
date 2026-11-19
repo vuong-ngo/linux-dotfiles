@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # --- COLOR DEFINITIONS ---
 GREEN='\033[0;32m'
@@ -48,5 +49,4 @@ zramctl
 echo -e "${CYAN}--- SWAP PRIORITY CHECK ---${NC}"
 swapon --show
 echo -e "----------------------------------------------------\n"
-
 echo -e "${GREEN}✅ AWESOME! Compressed RAM system is now running smoothly with max priority.${NC}"
