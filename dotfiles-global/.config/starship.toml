@@ -12,6 +12,10 @@ $git_branch\
 $git_commit\
 $git_state\
 $git_status\
+$line_break\
+$character"""
+
+right_format = """
 $package\
 $c\
 $rust\
@@ -25,8 +29,7 @@ $kubernetes\
 $terraform\
 $cmd_duration\
 $status\
-$line_break\
-$character"""
+"""
 
 # ------------------------------------------------------------------------------
 # 1. USER & HOSTNAME (SSH / Root Only)
