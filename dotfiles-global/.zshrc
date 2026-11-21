@@ -128,11 +128,6 @@ export PAGER='less'
 # PATH Additions
 export PATH="$HOME/.local/bin:$PATH"
 
-# Pyenv Integration
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
-
 # ------------------------------------------------------------
 # 8. PRODUCTIVITY ALIASES & TMUX SHORTCUTS
 # ------------------------------------------------------------
