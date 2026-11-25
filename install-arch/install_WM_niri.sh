@@ -39,7 +39,7 @@ NIRI_PACKAGES=(
     "hyprlock" "swayidle" # HYPRLAND LOCKING & IDLE MANAGEMENT
 
     # --- System Infrastructure & Hardware Integration ---
-    "foot"                    # GPU-accelerated terminal emulator
+    "kitty"                   #  GPU-accelerated terminal emulator
     "polkit-gnome"            # Graphical password prompts for root access
     "wl-clipboard" "cliphist" # Clipboard manager & history
     "xclip"                   # Clipboard management in terminal
