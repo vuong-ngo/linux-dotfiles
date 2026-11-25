@@ -7,10 +7,10 @@ padding = { x = 15, y = 15 }
 dynamic_padding = true
 decorations = "None"
 opacity = 0.9
-blur = true
+blur = false
 
 [font]
-size = 9.0
+size = 12.0
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
@@ -31,35 +31,48 @@ style = "ExtraBold Italic"
 [cursor]
 style = { shape = "Block", blinking = "Never" }
 
-# --- Alacritty Signature Palette (Base16 Classic Dark) ---
+# --- Foot palette: Catppuccin Mocha Black ---
 [colors.primary]
-background = "#181818"
-foreground = "#d8d8d8"
+background = "#08080c"
+foreground = "#cdd6f4"
 
 [colors.cursor]
-text = "#181818"
-cursor = "#d8d8d8"
+text = "#08080c"
+cursor = "#cdd6f4"
 
 [colors.selection]
-text = "#181818"
-background = "#d8d8d8"
+text = "#08080c"
+background = "#b4befe"
 
 [colors.normal]
-black = "#282828"
-red = "#ac4242"
-green = "#90a959"
-yellow = "#f4bf75"
-blue = "#6a9fb5"
-magenta = "#aa759f"
-cyan = "#75b5aa"
-white = "#d8d8d8"
+black = "#45475a"
+red = "#f38ba8"
+green = "#a6e3a1"
+yellow = "#f9e2af"
+blue = "#89b4fa"
+magenta = "#cba6f7"
+cyan = "#94e2d5"
+white = "#cdd6f4"
 
 [colors.bright]
-black = "#6b6b6b"
-red = "#c55555"
-green = "#aac474"
-yellow = "#feca88"
-blue = "#82b8c8"
-magenta = "#c28cb8"
-cyan = "#93d3c3"
-white = "#f8f8f8"
+black = "#585b70"
+red = "#eba0ac"
+green = "#94e2d5"
+yellow = "#f2cdcd"
+blue = "#b4befe"
+magenta = "#f5c2e7"
+cyan = "#89dceb"
+white = "#f5e0dc"
+
+# Tmux owns long history; keep a small fallback outside tmux.
+[scrolling]
+history = 1000
+multiplier = 3
+
+[mouse]
+hide_when_typing = true
+
+# Audible system bell without a visual flash (same helpers as Foot).
+[bell]
+duration = 0
+command = { program = "sh", args = ["-c", "canberra-gtk-play -i bell -d 'Terminal Bell' 2>/dev/null || pw-play /usr/share/sounds/freedesktop/stereo/bell.oga 2>/dev/null"] }

@@ -1,0 +1,75 @@
+# Minimal Ghostty profile; validated with Ghostty 1.4.0.
+# Same Catppuccin Mocha Black palette and opacity as foot/foot.ini.
+font-family = JetBrainsMono Nerd Font
+font-style = SemiBold
+font-style-bold = ExtraBold
+font-style-italic = SemiBold Italic
+font-style-bold-italic = ExtraBold Italic
+font-size = 12
+
+window-padding-x = 15
+window-padding-y = 15
+window-decoration = none
+gtk-tabs-location = hidden
+background-opacity = 0.9
+background-blur = false
+cursor-style = block
+cursor-style-blink = false
+custom-shader = shaders/cursor_trail.glsl
+custom-shader-animation = true
+
+# Bytes per surface, including the active screen; not a total RAM cap.
+scrollback-limit = 2097152
+# Keep image previews with a 32 MiB budget per screen.
+image-storage-limit = 33554432
+link-url = true
+bell-features = system,attention,title
+desktop-notifications = true
+
+# Keep shell integration; preserve the Foot block cursor.
+shell-integration = detect
+shell-integration-features = no-cursor
+# Share one application process; exit when the last window closes.
+gtk-single-instance = true
+quit-after-last-window-closed = true
+
+mouse-hide-while-typing = true
+clipboard-read = ask
+clipboard-write = allow
+clipboard-paste-protection = true
+
+foreground = #cdd6f4
+background = #08080c
+selection-foreground = #08080c
+selection-background = #b4befe
+cursor-color = #cdd6f4
+cursor-text = #08080c
+palette = 0=#45475a
+palette = 1=#f38ba8
+palette = 2=#a6e3a1
+palette = 3=#f9e2af
+palette = 4=#89b4fa
+palette = 5=#cba6f7
+palette = 6=#94e2d5
+palette = 7=#cdd6f4
+palette = 8=#585b70
+palette = 9=#eba0ac
+palette = 10=#94e2d5
+palette = 11=#f2cdcd
+palette = 12=#b4befe
+palette = 13=#f5c2e7
+palette = 14=#89dceb
+palette = 15=#f5e0dc
+
+# Remove default tab/split shortcuts and hide the tab bar.
+# Ghostty has no config switch to remove tab/split support itself.
+keybind = clear
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
+keybind = shift+insert=paste_from_selection
+keybind = shift+page_up=scroll_page_up
+keybind = shift+page_down=scroll_page_down
+keybind = ctrl+equal=increase_font_size:1
+keybind = ctrl+plus=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+zero=reset_font_size
