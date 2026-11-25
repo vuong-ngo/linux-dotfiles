@@ -65,7 +65,7 @@ setopt HIST_REDUCE_BLANKS     # Clean up superfluous whitespace
 setopt HIST_VERIFY            # Review history expansions before execution
 
 # ------------------------------------------------------------
-# 5. VIM MODE & CURSOR SHAPE (Foot + Tmux compatible)
+# 5. VIM MODE, TEXT OBJECTS & SYSTEM CLIPBOARD
 # ------------------------------------------------------------
 bindkey -v
 export KEYTIMEOUT=15
@@ -74,20 +74,81 @@ export KEYTIMEOUT=15
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins 'kj' vi-cmd-mode
 
+# Edit current command line in $EDITOR (Ctrl+X Ctrl+E)
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd '^X^E' edit-command-line
+bindkey -M viins '^X^E' edit-command-line
+
+# Vim Text Objects: quotes (ci", da', yi`) and brackets (ci(, da[, yi{)
+autoload -Uz select-quoted select-bracketed surround
+zle -N select-quoted
+zle -N select-bracketed
+zle -N add-surround surround
+for m in visual viopp; do
+    for c in {a,i}{\',\",\`}; do
+        bindkey -M $m $c select-quoted
+    done
+    for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+        bindkey -M $m $c select-bracketed
+    done
+done
+bindkey -M visual S add-surround
+
+# System Clipboard Sync for Zsh Vi-mode (Wayland wl-clipboard / X11 xclip)
+function _zsh_clip_copy() {
+    if [[ -n "${WAYLAND_DISPLAY:-}" ]] && (( $+commands[wl-copy] )); then
+        printf '%s' "$1" | wl-copy >/dev/null 2>&1
+    elif [[ -n "${DISPLAY:-}" ]] && (( $+commands[xclip] )); then
+        printf '%s' "$1" | xclip -selection clipboard -in >/dev/null 2>&1
+    fi
+}
+
+function _zsh_clip_paste() {
+    if [[ -n "${WAYLAND_DISPLAY:-}" ]] && (( $+commands[wl-paste] )); then
+        wl-paste --no-newline 2>/dev/null
+    elif [[ -n "${DISPLAY:-}" ]] && (( $+commands[xclip] )); then
+        xclip -selection clipboard -out 2>/dev/null
+    fi
+}
+
+function _vi_yank_clip()          { zle .vi-yank; _zsh_clip_copy "$CUTBUFFER"; }
+function _vi_yank_line_clip()     { zle .vi-yank-whole-line; _zsh_clip_copy "$CUTBUFFER"; }
+function _vi_delete_clip()        { zle .vi-delete; _zsh_clip_copy "$CUTBUFFER"; }
+function _vi_delete_char_clip()   { zle .vi-delete-char; _zsh_clip_copy "$CUTBUFFER"; }
+function _vi_kill_eol_clip()      { zle .vi-kill-eol; _zsh_clip_copy "$CUTBUFFER"; }
+function _vi_change_clip()        { zle .vi-change; _zsh_clip_copy "$CUTBUFFER"; }
+function _vi_change_eol_clip()    { zle .vi-change-eol; _zsh_clip_copy "$CUTBUFFER"; }
+function _vi_put_after_clip()     { local c="$(_zsh_clip_paste)"; [[ -n "$c" ]] && CUTBUFFER="$c"; zle .vi-put-after; }
+function _vi_put_before_clip()    { local c="$(_zsh_clip_paste)"; [[ -n "$c" ]] && CUTBUFFER="$c"; zle .vi-put-before; }
+function _vi_put_replace_clip()   { local c="$(_zsh_clip_paste)"; [[ -n "$c" ]] && CUTBUFFER="$c"; zle .put-replace-selection; }
+
+zle -N vi-yank _vi_yank_clip
+zle -N vi-yank-whole-line _vi_yank_line_clip
+zle -N vi-delete _vi_delete_clip
+zle -N vi-delete-char _vi_delete_char_clip
+zle -N vi-kill-eol _vi_kill_eol_clip
+zle -N vi-change _vi_change_clip
+zle -N vi-change-eol _vi_change_eol_clip
+zle -N vi-put-after _vi_put_after_clip
+zle -N vi-put-before _vi_put_before_clip
+zle -N put-replace-selection _vi_put_replace_clip
+
 # ------------------------------------------------------------
-# 6. UNIVERSAL KEYMAPS (Foot Terminal & Tmux keycodes)
+# 6. UNIVERSAL KEYMAPS (Kitty / Foot / Tmux keycodes)
 # ------------------------------------------------------------
-# Editing & Deletion
-bindkey '^?' backward-delete-char
-bindkey '^H' backward-delete-char
-bindkey -M vicmd '^?' backward-delete-char
+# Editing & Deletion (Insert mode deletes freely; Normal mode Backspace moves left like Vim)
 bindkey -M viins '^?' backward-delete-char
-bindkey '^[[3~' delete-char
-bindkey -M vicmd '^[[3~' delete-char
+bindkey -M viins '^H' backward-delete-char
+bindkey -M viins '^W' backward-kill-word
+bindkey -M viins '^U' backward-kill-line
+bindkey -M vicmd '^?' vi-backward-char
+bindkey -M viins '^[[3~' delete-char
+bindkey -M vicmd '^[[3~' vi-delete-char
 
 # Navigation (Home, End, Line start/end)
-bindkey '^A' beginning-of-line
-bindkey '^E' end-of-line
+bindkey -M viins '^A' beginning-of-line
+bindkey -M viins '^E' end-of-line
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 bindkey '^[OH' beginning-of-line
@@ -96,8 +157,6 @@ bindkey '^[OF' end-of-line
 # Word jumping (Ctrl+Left / Ctrl+Right)
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
-bindkey '^W' backward-kill-word
-bindkey '^U' backward-kill-line
 
 # History Substring Search (Up/Down arrows filter based on input)
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
