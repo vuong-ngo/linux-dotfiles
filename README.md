@@ -83,7 +83,7 @@ linux-dotfiles/
 
 ### 4. Tmux Multiplexer (`dotfiles-global/.config/tmux`)
 - **Vi Copy Mode & System Clipboard**: Integrated Vi selection (`v`, `V`, `Ctrl+v`, `y`) with external clipboard support.
-- **Zero Typing Interference**: Pane operations use the Prefix key (`Ctrl+b` in repo `tmux.conf`), while fast window switching uses `Alt + Shift + H / L`.
+- **Zero Typing Interference**: Pane operations use the Prefix key (`Ctrl+a`), while fast window switching uses `Alt + Shift + H / L`.
 - **Custom Dual-Tone Status Bar**: Top-anchored graphite bar showing active mode (`NORMAL`, `PREFIX`, `VISUAL`), session badge, and Bufferline-style window tabs.
 
 ### 5. Rofi Rasi Modules (`dotfiles-niri/.config/rofi`)
@@ -126,7 +126,7 @@ linux-dotfiles/
 ### 📟 Tmux Terminal Multiplexer
 | Shortcut | Action |
 | :--- | :--- |
-| `Ctrl + b` | Prefix Key (default in repo `tmux.conf`) |
+| `Ctrl + a` | Prefix Key |
 | `Prefix, h / j / k / l` | Focus Left / Down / Up / Right Pane |
 | `Alt + Shift + H / L` | Switch to Previous / Next Window |
 | `Prefix, \|` | Split Window Vertically |
