@@ -75,6 +75,7 @@ linux-dotfiles/
 - **Consistent Aesthetics**: All 4 terminals (**Foot**, **Ghostty**, **Kitty**, **Alacritty**) share `JetBrainsMono Nerd Font` (12pt), Catppuccin Mocha Black (`#08080c`), `0.9` opacity, and block cursor.
 - **Ghostty Cursor Trail Shader**: Custom single-pass GLSL shader (`shaders/cursor_trail.glsl`) providing a smooth, VS Code-style cursor glide (`0.26s`, soft Lavender fade) without distracting bloom.
 - **Tmux-First Philosophy**: Terminal tab bars and redundant split shortcuts are disabled so **Tmux** cleanly owns all panes, tabs, and long scrollback history (`50,000` lines).
+- **Kitty over SSH**: See the [Kitty, SSH and Codex setup](dotfiles-global/.config/tmux/README.md#kitty-ssh-and-codex) for terminal images and Pets.
 
 ### 3. Neovim & Vim Stack (`vim-stack` External Repository)
 - **Dedicated Repository**: Neovim and Vim configurations are modularly managed in **[vuong-ngo/vim-stack](https://github.com/vuong-ngo/vim-stack.git)**.
@@ -174,6 +175,8 @@ chmod +x install_WM_niri.sh install_shell_zsh.sh
 # 1. Symlink Global Configurations
 ln -sfn ~/dotfiles/dotfiles-global/.config/terminal/foot ~/.config/foot
 ln -sfn ~/dotfiles/dotfiles-global/.config/terminal/ghostty ~/.config/ghostty
+ln -sfnT ~/dotfiles/dotfiles-global/.config/terminal/kitty ~/.config/kitty
+ln -sfnT ~/dotfiles/dotfiles-global/.config/tmux ~/.config/tmux
 ln -sfn ~/dotfiles/dotfiles-global/.zshrc ~/.zshrc
 
 # 2. Symlink Niri Desktop Configurations
