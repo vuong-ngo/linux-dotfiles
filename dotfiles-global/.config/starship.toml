@@ -2,7 +2,9 @@
 # MODERN PASTEL MINIMALIST - STARSHIP THEME
 # ==============================================================================
 
-add_newline = true
+scan_timeout = 100
+command_timeout = 500
+add_newline = false
 
 format = """
 $username\
@@ -13,20 +15,12 @@ $git_commit\
 $git_state\
 $git_status\
 $line_break\
-$character"""
+$character
+"""
 
 right_format = """
-$package\
-$c\
-$rust\
-$golang\
-$nodejs\
 $python\
 $conda\
-$java\
-$docker_context\
-$kubernetes\
-$terraform\
 $cmd_duration\
 $status\
 """
@@ -51,8 +45,8 @@ style = "bold #89b4fa"
 [directory]
 format = "[$path](bold #89b4fa)[$read_only]($read_only_style) "
 style = "bold #89b4fa"
-truncation_length = 4
-truncation_symbol = "-|"
+truncation_length = 3
+truncation_symbol = "../"
 truncate_to_repo = false
 fish_style_pwd_dir_length = 0
 home_symbol = "~"
@@ -88,65 +82,27 @@ modified = "!${count} "
 staged = "+${count} "
 renamed = "»${count} "
 deleted = "✘${count} "
+ignore_submodules = true
 
 # ------------------------------------------------------------------------------
-# 4. CLOUD & INFRASTRUCTURE
+# 4. DEV RUNTIMES & LANGUAGES (Harmonized Modern Pastel Accents)
 # ------------------------------------------------------------------------------
-[docker_context]
-format = "[󰡨 $context]($style) "
-style = "bold #89dceb"
-only_with_files = true
-
-[kubernetes]
-format = "[󱏓 $context(-$namespace)]($style) "
-style = "bold #b4befe"
-disabled = false
-
-[terraform]
-format = "[󱁢 $workspace]($style) "
-style = "bold #cba6f7"
-
-# ------------------------------------------------------------------------------
-# 5. DEV RUNTIMES & LANGUAGES (Harmonized Modern Pastel Accents)
-# ------------------------------------------------------------------------------
-[package]
-format = "[󰏗 $version]($style) "
-style = "bold #7f849c"
-
-[c]
-format = "[ $version]($style) "
-style = "bold #89b4fa"
-
-[rust]
-format = "[ $version]($style) "
-style = "bold #fab387"
-
-[golang]
-format = "[ $version]($style) "
-style = "bold #89dceb"
-
-[nodejs]
-format = "[󰌞 $version]($style) "
-style = "bold #a6e3a1"
-
 [python]
-format = "[ $version( ($virtualenv))]($style) "
+format = "[( ($virtualenv))]($style) "
 style = "bold #f9e2af"
+detect_extensions = []
+detect_files = []
 
 [conda]
 format = "[󱔎 $environment]($style) "
 style = "bold #a6e3a1"
-ignore_base = false
-
-[java]
-format = "[ $version]($style) "
-style = "bold #f38ba8"
+ignore_base = true
 
 # ------------------------------------------------------------------------------
-# 6. SYSTEM STATUS & DURATION
+# 5. SYSTEM STATUS & DURATION
 # ------------------------------------------------------------------------------
 [cmd_duration]
-min_time = 2_000
+min_time = 2000
 format = "[󱎫 $duration]($style) "
 style = "bold #f9e2af"
 
@@ -157,7 +113,7 @@ style = "bold #f38ba8"
 disabled = false
 
 # ------------------------------------------------------------------------------
-# 8. PROMPT CHARACTER (Synced Vi-mode with Tmux / Neovim)
+# 6. PROMPT CHARACTER (Synced Vi-mode with Tmux / Neovim)
 # ------------------------------------------------------------------------------
 [character]
 success_symbol = '[◆](bold #a6e3a1) '
