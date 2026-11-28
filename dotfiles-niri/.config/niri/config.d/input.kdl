@@ -21,7 +21,6 @@ input {
 
     touchpad {
         tap
-        drag false
         dwt
         accel-speed 0.25
         accel-profile "adaptive"
